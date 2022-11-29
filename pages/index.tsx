@@ -1,8 +1,27 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import { getSortedBlogsData } from '@lib/notion/blogs'
+import Link from 'next/link'
+import { GetStaticProps } from 'next'
+import { BlogData } from '@localTypes/blog'
+import BlogItem from '../components/Items/BlogItem'
 
-export default function Home() {
+interface Props {
+  latestBlogData: BlogData[]
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const latestBlogData = await getSortedBlogsData(2);
+  return {
+    props: {
+      latestBlogData,
+    },
+    revalidate: 60,
+  };
+};
+
+export default function Home({ latestBlogData }: Props) {
   return (
     <div className={styles.container}>
       <Head>
@@ -16,6 +35,22 @@ export default function Home() {
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
+        <div id="recentBlogs" className="flex flex-col mb-24">
+          <h1 className="text-2xl md:text-4xl font-extrabold mb-5">
+            Latest blogs
+          </h1>
+
+          <div className="grid place-items-center">
+            <ul className="w-full grid sm:grid-cols-2 gap-x-8 gap-y-24 p-5 list-none">
+              {latestBlogData.map((post) => (
+                <li className="" key={post.slug}>
+                  <BlogItem slug={post.slug} post={post} />
+                </li>
+              ))}
+            </ul>
+          </div>
+          <Link href="/blog" className="text-xl hover:underline">Read more →</Link>
+        </div>
         <p className={styles.description}>
           Get started by editing{' '}
           <code className={styles.code}>pages/index.tsx</code>

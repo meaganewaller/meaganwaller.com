@@ -9,14 +9,25 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@notionhq/client": "^2.2.2",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
+    "esbuild": "^0.15.16",
     "eslint": "8.28.0",
     "eslint-config-next": "13.0.5",
+    "mdx-bundler": "^9.0.1",
     "next": "13.0.5",
+    "notion-to-md": "^2.5.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "4.9.3"
+  },
+  "devDependencies": {
+    "rehype-autolink-headings": "^6.1.1",
+    "rehype-code-titles": "^1.1.0",
+    "rehype-prism-plus": "^1.5.0",
+    "rehype-slug": "^5.1.0",
+    "remark-gfm": "^3.0.1"
   }
 }
