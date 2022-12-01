@@ -4,28 +4,38 @@ import Image from "next/image";
 import { BlogData } from "@localTypes/blog";
 
 interface Props {
-  slug: string;
   post: BlogData;
 }
 
 export default function BlogItem({ post }: Props): ReactElement {
   return (
-    <Link href={`/blog/${post.slug}`} passHref className="space-y-5 mb-5 group">
-      <div className="flex justify-center items-center">
-        <div className="relative aspect-h-4 aspect-w-3 focus-ring w-full rounded-lg object-cover object-center transition duration-300">
+    <div>
+      <Link href={`/blog/${post.slug}`}>
+        <div className="group">
           <Image
+            className="rounded-xl group-hover:opacity-75"
             src={post.image}
-            alt={post.title}
-            className="relative rounded-lg"
-            width={250}
-            height={250}
+            placeholder="blur"
+            blurDataURL={post.image}
+            width={684}
+            height={800}
+            alt={'post cover image'}
           />
+          <div className="text-left w-full">
+            <h3 className="mt-2 text-2xl">{post.title}</h3>
+            <span className="text-base font-semibold flex items-center">
+            {new Date(post.posted).toLocaleString(
+              'us',
+              {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              }
+            )}{' '}
+            </span>
+          </div>
         </div>
-      </div>
-      <div className="text-gray-500 text-xl font-bold">
-        <span>{post.posted}</span>
-      </div>
-      <h2 className="text-3xl font-bold">{post.title}</h2>
-    </Link>
+      </Link>
+    </div>
   );
 }

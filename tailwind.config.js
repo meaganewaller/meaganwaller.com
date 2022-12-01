@@ -1,16 +1,22 @@
-const { fontFamily } = require("tailwindcss/defaultTheme");
-const plugin = require("tailwindcss/plugin");
+const colors = require('tailwindcss/colors');
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
+    "./lib/**/*.tsx"
   ],
   darkMode: "class",
+  important: true,
   theme: {
     extend: {
-      transitionProperty: {
-        width: "width",
+      fontFamily: {
+        sans: ['DM Sans', ...defaultTheme.fontFamily.sans],
+        mono: ['IBM Plex Mono', ...defaultTheme.fontFamily.mono],
+        serif: ['Prata', ...defaultTheme.fontFamily.serif],
+        headings: ['Prata'],
+        fancy: ['Prata']
       },
       colors: {
         "onyx": "#3C3C3C",
@@ -24,104 +30,89 @@ module.exports = {
         "asparagus": "#90A955",
         "june-bud": "#CADE66",
       },
-      fontFamily: {
-        sans: ["dm-sans", ...fontFamily.sans],
-        mono: ["ibm-plex-mono", ...fontFamily.mono],
-        serif: ["prata", ...fontFamily.serif],
-      },
-      stroke: (theme) => ({
-        "orange-yellow": theme("#F4D35E"),
-      }),
-      screens: {
-        portrait: { raw: "(orientation: portrait)" },
-      },
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            blockquote: {
-              borderLeft: `5px solid ${theme("colors.fiery-rose")}`,
-            },
-          },
-        },
-        light: {
-          css: {
-            color: theme("colors.gray.400"),
-            '[class~="lead"]': {
-              color: theme("colors.gray.300"),
-            },
+            color: theme('colors.onyx.700'),
             a: {
-              color: theme("colors.white"),
+              color: theme('colors.onyx.900'),
+              '&:hover': {},
+              textDecorationColor: theme('colors.teal.500'),
+              textUnderlineOffset: '3px',
+              textDecorationStyle: 'decoration-solid',
+              code: { color: theme('colors.blue.400') },
             },
-            strong: {
-              color: theme("colors.white"),
+            blockquote: {
+              borderLeftColor: theme('colors.june-bud.500'),
+              backgroundColor: theme('colors.champagne.50'),
+              color: theme('colors.onyx.700'),
             },
-            "ol > li::before": {
-              color: theme("colors.gray.400"),
+            'h1,h2,h3,h4': {
+              color: theme('colors.onyx.900')
             },
-            "ul > li::before": {
-              backgroundColor: theme("colors.gray.600"),
+            hr: { borderColor: theme('colors.gray.700')},
+            strong: { color: theme('colors.gray.700')},
+             thead: {
+              color: theme('colors.gray.100'),
+              borderBottomColor: theme('colors.gray.600')
+            },
+            tbody: {
+              tr: {
+                borderBottomColor: theme('colors.gray.700')
+              }
             },
             hr: {
-              borderColor: theme("colors.gray.200"),
+              color: theme('colors.gray.200'),
+              '&before': { content: '∿∿∿' }
+            },
+            code: { color: theme('colors.indigo.500') },
+            'blockquote p:first-of-type::before': false,
+            'blockquote p:last-of-type::after': false,
+            pre: {
+              backgroundColor: theme('colors.gray.100')
+            }
+          }
+        },
+        dark: {
+          css: {
+            color: theme('colors.slate.300'),
+            a: {
+              color: theme('colors.slate.50'),
+              '&:hover': {
+                color: theme('colors.teal.500')
+              },
+              textDecorationColor: theme('colors.teal.400'),
+              textUnderlineOffset: '3px',
+              textDecorationStyle: 'decoration-solid',
+              code: { color: theme('colors.blue.400') }
             },
             blockquote: {
-              borderLeft: `5px solid ${theme("colors.fiery-rose")}`,
+              borderLeftColor: theme('colors.teal.500'),
+              backgroundColor: theme('colors.slate.800'),
+              color: theme('colors.gray.400')
             },
-            h1: {
-              color: theme("colors.white"),
+            'h1,h2,h3,h4': {
+              color: theme('colors.white')
             },
-            h2: {
-              color: theme("colors.white"),
-            },
-            h3: {
-              color: theme("colors.white"),
-            },
-            h4: {
-              color: theme("colors.white"),
-            },
-            "figure figcaption": {
-              color: theme("colors.gray.400"),
-            },
-            code: {
-              color: theme("colors.white"),
-            },
-            "a code": {
-              color: theme("colors.white"),
-            },
-            pre: {
-              color: theme("colors.gray.200"),
-              backgroundColor: "#161B22",
-            },
+            hr: { borderColor: theme('colors.gray.600') },
+            strong: { color: theme('colors.gray.100') },
             thead: {
-              color: theme("colors.white"),
-              borderBottomColor: theme("colors.gray.400"),
+              color: theme('colors.gray.100'),
+              borderBottomColor: theme('colors.gray.600')
             },
-            "tbody tr": {
-              borderBottomColor: theme("colors.gray.600"),
+            tbody: {
+              tr: {
+                borderBottomColor: theme('colors.gray.700')
+              }
             },
-          },
-        },
-      }),
-    },
+            code: { color: theme('colors.indigo.200') },
+            pre: {
+              backgroundColor: theme('colors.onyx')
+            }
+          }
+        }
+      })
+    }
   },
-  plugins: [
-    require("@tailwindcss/typography"),
-    require("@tailwindcss/aspect-ratio"),
-    require("@tailwindcss/line-clamp"),
-    plugin(function ({ addVariant, e, postcss }) {
-      addVariant("firefox", ({ container, separator }) => {
-        const isFirefoxRule = postcss.atRule({
-          name: "-moz-document",
-          params: "url-prefix()",
-        });
-        isFirefoxRule.append(container.nodes);
-        container.append(isFirefoxRule);
-        isFirefoxRule.walkRules((rule) => {
-          rule.selector = `.${e(
-`firefox${separator}${rule.selector.slice(1)}`
-)}`;
-        });
-      });
-    }),
-  ],
+  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')]
 };

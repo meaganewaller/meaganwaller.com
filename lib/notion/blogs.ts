@@ -1,6 +1,6 @@
 import { Client, LogLevel } from "@notionhq/client";
 import { NotionToMarkdown } from "notion-to-md";
-import { BlogData } from "@localTypes/blog";
+import { BlogData, Tags } from "@localTypes/blog";
 import { getBundledMDX } from "@lib/mdx";
 
 let client: Client;
@@ -22,22 +22,110 @@ const notionClient = () => {
 const notion = notionClient();
 const n2m = new NotionToMarkdown({ notionClient: notion });
 
-export async function getSortedBlogsData(limit?: number) {
+export async function getAllSortedBlogsData(limit?: number) {
   const { results } = await notion.databases.query({
     database_id: process.env.NOTION_BLOG_DATABASE_ID ?? "",
     filter: {
       and: [
         {
+          property: "Slug",
+          rich_text: {
+            is_not_empty: true,
+          },
+        },
+        { 
+          or: [
+            {
+              property: "Status",
+              select: {
+                equals: "✅ Published",
+              },
+            },
+            {
+              property: "Status",
+              select: {
+                equals: '✏️  Draft',
+              },
+            },
+          ],
+        },
+      ],
+    },
+    sorts: [
+      {
+        property: "Posted",
+        direction: "descending",
+      },
+    ],
+    page_size: limit,
+  });
+
+  return results;
+}
+
+export const getPublishedBlogPosts = async (limit?: number) => {
+  const { results } = await notion.databases.query({
+    database_id: process.env.NOTION_BLOG_DATABASE_ID ?? "",
+    filter: {
+      and: [
+        {
+          property: 'Published',
+          checkbox: {
+            equals: true
+          },
+        },
+        {
           property: "Status",
           select: {
             equals: "✅ Published",
-          },
+          }
         },
         {
           property: "Slug",
           rich_text: {
             is_not_empty: true,
           },
+        }
+      ],
+    },
+    sorts: [
+      {
+        property: 'Posted',
+        direction: 'descending'
+      }
+    ],
+    page_size: limit,
+  });
+
+  return results;
+}
+
+export async function getSortedBlogsData(limit?: number) {
+  const { results } = await notion.databases.query({
+    database_id: process.env.NOTION_BLOG_DATABASE_ID ?? "",
+    filter: {
+      and: [
+        {
+          property: "Slug",
+          rich_text: {
+            is_not_empty: true,
+          },
+        },
+        { 
+          or: [
+            {
+              property: "Status",
+              select: {
+                equals: "✅ Published",
+              },
+            },
+            {
+              property: "Status",
+              select: {
+                equals: '✏️  Draft',
+              },
+            },
+          ],
         },
       ],
     },
@@ -148,6 +236,12 @@ export async function getBlogData(id: string) {
               equals: "✅ Published",  
             },
           },
+          {
+            property: "Published",
+            checkbox: {
+              equals: true,
+            },
+          },
         ],
       },
       page_size: 1,
@@ -192,4 +286,36 @@ export async function getBlogData(id: string) {
   } catch (error) {
     console.log(error);
   }
+}
+
+export const convertToPostList = (blogData: any) => {
+  let tags: string[] = [];
+
+  const posts = blogData.map((post: any) => {
+    return {
+      title: post.properties.Title.title[0].plain_text,
+      slug: post.properties.Slug.type === "rich_text"
+        ? post.properties.Slug.rich_text[0].plain_text
+        : "",
+      image: post.properties?.coverImage?.files[0]?.file?.url ||
+        post.properties.coverImage?.files[0]?.external?.url ||
+        'https://via.placeholder.com/600x400.png',
+      posted: post.properties.Posted.type === "date"
+        ? post.properties.Posted.date?.start
+        : "",
+      description: post.properties.Description.type === "rich_text"
+        ? post.properties.Description.rich_text[0].plain_text 
+        : "",
+      tags: post.properties.Tags.multi_select.map((tag: any) => {
+        if (!tags.includes(tag.name)) {
+          const newList = [...tags, tag.name];
+          tags = newList;
+        }
+        return { name: tag.name, id: tag.id };
+      }),
+      isPublic: post.properties?.Published.checkbox
+    };
+  });
+
+  return { tags, posts };
 }
