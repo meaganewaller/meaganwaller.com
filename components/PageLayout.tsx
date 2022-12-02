@@ -9,7 +9,6 @@ import { useRouter } from "next/router";
 interface PageLayoutProps {
   title?: string;
   children: ReactNode;
-  customMeta: any;
 }
 
 export default function PageLayout({
