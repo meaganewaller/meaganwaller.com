@@ -113,7 +113,6 @@ export default function Blogs({ featuredPost, posts, tags }: Props): ReactElemen
                     strokeLinejoin="round"
                   ></path>
                 </svg>
-
               </Link>
               <Link href="https://twitter.com/meaganewaller" target="_blank" className="text-gray-600 dark:text-gray-400 important" rel="noreferrer">
                 <span className="sr-only">https://twitter.com/meaganewaller</span>
@@ -220,7 +219,7 @@ export default function Blogs({ featuredPost, posts, tags }: Props): ReactElemen
       </div>
       <div className="min-h-screen space-y-12">
         {!filteredPosts.length && (
-          <div className="w-full mx-auto rounded-lg bg-[#F8FAFC] dark:bg-midnight p-4">
+          <div className="w-full mx-auto rounded-lg bg-[#F8FAFC] dark:bg-onyx p-4">
             <p className="flex items-center justify-center text-2xl">
               No articles found{' '}
               <span>
