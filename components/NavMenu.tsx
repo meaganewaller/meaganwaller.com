@@ -45,9 +45,9 @@ export function NavMenu({}) {
             alt="Meagan Waller"
             height={48}
             width={48}
-            src="https://via.placeholder.com/48"
+            src="https://via.placeholder.com/48x48.png"
             placeholder="blur"
-            blurDataURL="https://via.placeholder.com/48"
+            blurDataURL="https://via.placeholder.com/48x48.png"
             className="rounded-full"
           />
         </div>

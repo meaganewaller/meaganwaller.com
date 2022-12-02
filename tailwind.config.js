@@ -2,6 +2,7 @@ const colors = require('tailwindcss/colors');
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
+  mode: 'jit',
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
@@ -17,6 +18,41 @@ module.exports = {
         serif: ['Prata', ...defaultTheme.fontFamily.serif],
         headings: ['Prata'],
         fancy: ['Prata']
+      },
+      backgroundColor: {
+        primary: 'var(--color-bg-primary)',
+        secondary: 'var(--color-bg-secondary)',
+        tertiary: 'var(--color-bg-tertiary)',
+        orange: 'var(--color-orange-primary)',
+      },
+      textColor: {
+        primary: 'var(--color-text-primary)',
+        secondary: 'var(--color-text-secondary)',
+        orange: 'var(--color-orange-primary)',
+      },
+      borderColor: {
+        primary: 'var(--color-border-primary)',
+      },
+      zIndex: {
+        '-10': '-10',
+        '-20': '-20',
+      },
+      translate: {
+        h1: '12px',
+        h2: '8px',
+        h3: '6px',
+        h4: '4px',
+        h5: '2px',
+        h6: '2px',
+      },
+      rotate: {
+        '-1.5': '-1.5deg',
+      },
+      minWidth: {
+        '40': '40px',
+      },
+      maxHeight: {
+        '3/4': '75vh',
       },
       colors: {
         "onyx": "#3C3C3C",
@@ -113,6 +149,12 @@ module.exports = {
         }
       })
     }
+  },
+  variants: {
+    extend: {
+      opacity: ['group-focus'],
+    },
+    backgroundColor: ['responsive', 'hover', 'focus', 'active'],
   },
   plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')]
 };

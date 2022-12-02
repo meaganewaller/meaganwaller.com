@@ -1,6 +1,7 @@
+import 'focus-visible'
 import '../styles/globals.css'
-
 import type { AppProps } from 'next/app'
+
 import { SiteLayout } from '@components/SiteLayout'
 import { ThemeProvider } from 'next-themes';
 

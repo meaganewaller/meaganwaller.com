@@ -18,6 +18,7 @@
       "@localTypes/*": [ "types/*"],
       "@components/*": [ "components/*" ]
     },
+    "typeRoots": ["./node_modules/@types", "./types"],
     "incremental": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

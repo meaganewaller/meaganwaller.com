@@ -33,7 +33,6 @@ class MyDocument extends Document {
             sizes="16x16"
             href="/icons/favicons/favicon-16x16.png"
             />
-          <link rel="manifest" href="/icons/favicons/site.webmanifest" />
         </Head>
         <body className="bg-champagne dark:bg-[#101010] text-onyx dark:text-champagne transition duration-300">
           <Main />

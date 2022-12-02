@@ -1,4 +1,4 @@
-import { convertToPostList, getPublishedBlogPosts } from '@lib/notion/blogs';
+import { convertToPostList, getPublishedPosts } from '@lib/notion/blogs';
 
 import { PostList } from '@components/PostList';
 import { Button } from '@components/Button';
@@ -18,7 +18,7 @@ const workExperience = [
   {
     company: 'Test Double',
     title: 'Senior Software Development Consultant',
-    duration: 'February 2021 - '
+    duration: 'February 2021 - present'
   },
   {
     company: 'Daily Kos',
@@ -26,7 +26,7 @@ const workExperience = [
     duration: 'June 2015 - February 2021',
   },
   {
-    company: 'Independet Contractor',
+    company: 'Independent Contractor',
     title: 'Rails Developer',
     duration: 'September 2014 - June 2015'
   },
@@ -70,9 +70,9 @@ export default function About({ recentPosts }: Props) {
         <div className="col-span-1">
           <Image
             className="rounded-xl group-hover:opacity-75"
-            src="https://via.placeholder.com/260x260"
+            src="https://via.placeholder.com/260x260.png"
             placeholder="blur"
-            blurDataURL="https://via.placeholder.com/260x260"
+            blurDataURL="https://via.placeholder.com/260x260.png"
             width={260}
             height={260}
             alt={"Meagan Waller's avatar"}
@@ -141,9 +141,9 @@ export default function About({ recentPosts }: Props) {
         <div className="col-span-2">
           <Image
             className="rounded-xl group-hover:opacity-75"
-            src="https://via.placeholder.com/260x260"
+            src="https://via.placeholder.com/260x260.png"
             placeholder="blur"
-            blurDataURL="https://res.cloudinary.com/braydoncoyer/image/upload/v1637186547/toolbox_hardware.jpg"
+            blurDataURL="https://via.placeholder.com/260x260.png"
             width={260}
             height={260}
             alt={'article cover'}
@@ -155,7 +155,7 @@ export default function About({ recentPosts }: Props) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data = await getPublishedBlogPosts(3);
+  const data = await getPublishedPosts(3);
   const { posts } = convertToPostList(data);
 
   return {

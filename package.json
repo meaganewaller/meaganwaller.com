@@ -4,9 +4,17 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "yarn-run-all --parallel sitemap rss",
     "build": "next build",
+    "prestart": "yarn run build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
+    "typecheck": "yarn-run-all --parallel typecheck:rest typecheck:cypress",
+    "typecheck:rest": "tsc --noEmit -p .",
+    "sitemap": "ts-node scripts/generate-sitemap.ts",
+    "rss": "ts-node scripts/generate-rss.ts",
+    "validate": "yarn-run-all --parallel lint typecheck",
+    "publish": "ts-node scripts/publish-blog.ts"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.4",
@@ -17,6 +25,7 @@
     "esbuild": "^0.15.16",
     "eslint": "8.28.0",
     "eslint-config-next": "13.0.5",
+    "focus-visible": "^5.2.0",
     "framer-motion": "^7.6.17",
     "gitmoji-cli": "^7.0.2",
     "mdx-bundler": "^9.0.1",
@@ -25,7 +34,12 @@
     "notion-to-md": "^2.5.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "typescript": "4.9.3"
+    "react-spring": "^9.5.5",
+    "reading-time": "^1.5.0",
+    "remark-prism": "^1.3.6",
+    "swr": "^1.3.0",
+    "typescript": "4.9.3",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",

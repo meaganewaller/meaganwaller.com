@@ -22,7 +22,7 @@ export default function PageLayout({
   const meta = {
     title: title,
     description: "Meta Description",
-    imageUrl: "https://via.placeholder.com/500",
+    imageUrl: "https://via.placeholder.com/500x500.png",
     type: PageType.WEBSITE,
     twitterHandle: "@meaganewaller",
     canonicalUrl: `https://meaganwaller.com${router.asPath}`,
@@ -35,6 +35,11 @@ export default function PageLayout({
       <Head>
         <title>{title}</title>
         <meta name="robots" content="follow, index" />
+        <meta name='googlebot' content='index,follow' />
+        <meta
+          name='viewport'
+          content='width=device-width, initial-scale=1, shrink-to-fit=no'
+        />
         <meta content={meta.description} name="description" />
         <meta property="og:url" content={`https://meaganwaller.com${router.asPath}`} />
         <meta name="application-name" content="&nbsp;" />

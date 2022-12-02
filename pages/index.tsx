@@ -1,4 +1,4 @@
-import { convertToPostList, getPublishedBlogPosts } from '@lib/notion/blogs'
+import { convertToPostList, getPublishedPosts } from '@lib/notion/blogs'
 import { PostList } from '@components/PostList'
 import { GetStaticProps } from 'next'
 import { BlogData } from '@localTypes/blog'
@@ -6,13 +6,15 @@ import PageLayout from "@components/PageLayout";
 import { ButtonType } from '@localTypes/button'
 import { Button } from '@components/Button'
 import { useRouter } from 'next/router'
+import Repos from '@components/Repos';
+import Graph from '@components/Graph';
 
 interface Props {
   latestBlogData: BlogData[]
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data = await getPublishedBlogPosts(3);
+  const data = await getPublishedPosts(3);
   const { posts } = convertToPostList(data);
 
   return {
@@ -68,6 +70,13 @@ export default function Home({ latestBlogData }: Props) {
           <div className="mt-16">
             <span>Some subscription module here</span>
           </div>
+        </div>
+        <hr className="hr" />
+        <div>
+          <h2>Community</h2>
+          <p>Building in public.</p>
+          <Repos />
+          <Graph />
         </div>
       </div>
     </PageLayout>
