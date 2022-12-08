@@ -2,9 +2,9 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": false,
+    "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -13,10 +13,15 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "baseUrl": ".",
     "paths": {
+      "@components/*": [ "components/*" ],
+      "@config/*": [ "config/*" ],
+      "@data/*": [ "data/*" ],
+      "@hooks/*": ["hooks/*"],
+      "@layouts/*": [ "layouts/*" ],
       "@lib/*": [ "lib/*" ],
-      "@localTypes/*": [ "types/*"],
-      "@components/*": [ "components/*" ]
+      "@localTypes/*": [ "types/*" ]
     },
     "typeRoots": ["./node_modules/@types", "./types"],
     "incremental": true

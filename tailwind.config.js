@@ -1,23 +1,18 @@
-const colors = require('tailwindcss/colors');
-const defaultTheme = require("tailwindcss/defaultTheme");
+const { spacing, fontFamily } = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  mode: 'jit',
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-    "./lib/**/*.tsx"
-  ],
-  darkMode: "class",
-  important: true,
+  content: ['./pages/**/*.tsx', './components/**/*.tsx', './layouts/**/*.tsx'],
+  darkMode: 'class',
   theme: {
+    screens: {
+      md: '767px',
+      lg: '991px',
+      xl: '1500px',
+    },
     extend: {
-      fontFamily: {
-        sans: ['DM Sans', ...defaultTheme.fontFamily.sans],
-        mono: ['IBM Plex Mono', ...defaultTheme.fontFamily.mono],
-        serif: ['Prata', ...defaultTheme.fontFamily.serif],
-        headings: ['Prata'],
-        fancy: ['Prata']
+      backgroundSize: {
+        'vert-dotted': '1px 8px',
+        'dotted': '8px 1px',
       },
       backgroundColor: {
         primary: 'var(--color-bg-primary)',
@@ -37,124 +32,155 @@ module.exports = {
         '-10': '-10',
         '-20': '-20',
       },
-      translate: {
-        h1: '12px',
-        h2: '8px',
-        h3: '6px',
-        h4: '4px',
-        h5: '2px',
-        h6: '2px',
-      },
-      rotate: {
-        '-1.5': '-1.5deg',
-      },
-      minWidth: {
-        '40': '40px',
-      },
-      maxHeight: {
-        '3/4': '75vh',
-      },
       colors: {
-        "onyx": "#3C3C3C",
-        "champagne": "#EEE0CB",
-        "orange-yellow": "#F4D35E",
-        "fiery-rose": "#F56476",
-        "tangerine": "#FAA089",
-        "bright-orange": "#F85E00",
-        "medium-blue": "#391BCF",
-        "sky-blue": "#56CBF9",
-        "asparagus": "#90A955",
-        "june-bud": "#CADE66",
-      },
-      typography: (theme) => ({
-        DEFAULT: {
-          css: {
-            color: theme('colors.onyx.700'),
-            a: {
-              color: theme('colors.onyx.900'),
-              '&:hover': {},
-              textDecorationColor: theme('colors.teal.500'),
-              textUnderlineOffset: '3px',
-              textDecorationStyle: 'decoration-solid',
-              code: { color: theme('colors.blue.400') },
-            },
-            blockquote: {
-              borderLeftColor: theme('colors.june-bud.500'),
-              backgroundColor: theme('colors.champagne.50'),
-              color: theme('colors.onyx.700'),
-            },
-            'h1,h2,h3,h4': {
-              color: theme('colors.onyx.900')
-            },
-            hr: { borderColor: theme('colors.gray.700')},
-            strong: { color: theme('colors.gray.700')},
-             thead: {
-              color: theme('colors.gray.100'),
-              borderBottomColor: theme('colors.gray.600')
-            },
-            tbody: {
-              tr: {
-                borderBottomColor: theme('colors.gray.700')
-              }
-            },
-            hr: {
-              color: theme('colors.gray.200'),
-              '&before': { content: '∿∿∿' }
-            },
-            code: { color: theme('colors.indigo.500') },
-            'blockquote p:first-of-type::before': false,
-            'blockquote p:last-of-type::after': false,
-            pre: {
-              backgroundColor: theme('colors.gray.100')
-            }
-          }
+        transparent: 'transparent',
+        current: 'currentColor',
+        'mirage': {
+          'DEFAULT': '#111827',
+          '50': '#f3f3f4', 
+          '100': '#e7e8e9', 
+          '200': '#c4c5c9', 
+          '300': '#a0a3a9', 
+          '400': '#585d68', 
+          '500': '#111827', 
+          '600': '#0f1623', 
+          '700': '#0d121d', 
+          '800': '#0a0e17', 
+          '900': '#080c13'
         },
-        dark: {
-          css: {
-            color: theme('colors.slate.300'),
-            a: {
-              color: theme('colors.slate.50'),
-              '&:hover': {
-                color: theme('colors.teal.500')
-              },
-              textDecorationColor: theme('colors.teal.400'),
-              textUnderlineOffset: '3px',
-              textDecorationStyle: 'decoration-solid',
-              code: { color: theme('colors.blue.400') }
-            },
-            blockquote: {
-              borderLeftColor: theme('colors.teal.500'),
-              backgroundColor: theme('colors.slate.800'),
-              color: theme('colors.gray.400')
-            },
-            'h1,h2,h3,h4': {
-              color: theme('colors.white')
-            },
-            hr: { borderColor: theme('colors.gray.600') },
-            strong: { color: theme('colors.gray.100') },
-            thead: {
-              color: theme('colors.gray.100'),
-              borderBottomColor: theme('colors.gray.600')
-            },
-            tbody: {
-              tr: {
-                borderBottomColor: theme('colors.gray.700')
-              }
-            },
-            code: { color: theme('colors.indigo.200') },
-            pre: {
-              backgroundColor: theme('colors.onyx')
-            }
-          }
-        }
-      })
-    }
+        'medium-purple': {
+          DEFAULT: '#9059D4',
+          '50': '#F2EBFA',
+          '100': '#E7DBF6',
+          '200': '#D1BAED',
+          '300': '#BB9AE5',
+          '400': '#A679DC',
+          '500': '#9059D4',
+          '600': '#7332C3',
+          '700': '#592796',
+          '800': '#3E1B69',
+          '900': '#24103D'
+        },
+        'masala': {
+          '50': '#f5f5f5', 
+          '100': '#ececec', 
+          '200': '#cecece', 
+          '300': '#b1b1b1', 
+          '400': '#777777', 
+          '500': '#3c3c3c', 
+          '600': '#363636', 
+          '700': '#2d2d2d', 
+          '800': '#242424', 
+          '900': '#1d1d1d',
+        },
+        'yellow-green': {
+          '50': '#fcfdf7', 
+          '100': '#fafcf0', 
+          '200': '#f2f7d9', 
+          '300': '#eaf2c2', 
+          '400': '#dae894', 
+          '500': '#cade66', 
+          '600': '#b6c85c', 
+          '700': '#98a74d', 
+          '800': '#79853d', 
+          '900': '#636d32',
+        },
+        'neutral': {
+          '50': '#fefdfc', 
+          '100': '#fdfcfa', 
+          '200': '#fbf7f2', 
+          '300': '#f8f3ea', 
+          '400': '#f3e9db', 
+          '500': '#eee0cb', 
+          '600': '#d6cab7', 
+          '700': '#b3a898', 
+          '800': '#8f867a', 
+          '900': '#756e63',
+        },
+        'goldenrod': {
+          '50': '#fefdf7', 
+          '100': '#fefbef', 
+          '200': '#fcf4d7', 
+          '300': '#fbedbf', 
+          '400': '#f7e08e', 
+          '500': '#f4d35e', 
+          '600': '#dcbe55', 
+          '700': '#b79e47', 
+          '800': '#927f38', 
+          '900': '#78672e',
+        },
+        'mandy': {
+          '50': '#fff7f8', 
+          '100': '#fef0f1', 
+          '200': '#fdd8dd', 
+          '300': '#fbc1c8', 
+          '400': '#f8939f', 
+          '500': '#f56476', 
+          '600': '#dd5a6a', 
+          '700': '#b84b59', 
+          '800': '#933c47', 
+          '900': '#78313a',
+        },
+        'orange': {
+          '50': '#fff7f2', 
+          '100': '#feefe6', 
+          '200': '#fdd7bf', 
+          '300': '#fcbf99', 
+          '400': '#fa8e4d', 
+          '500': '#f85e00', 
+          '600': '#df5500', 
+          '700': '#ba4700', 
+          '800': '#953800', 
+          '900': '#7a2e00',
+        },
+        'blue': {
+          '50': '#f5f4fd', 
+          '100': '#ebe8fa', 
+          '200': '#cec6f3', 
+          '300': '#b0a4ec', 
+          '400': '#745fdd', 
+          '500': '#391bcf', 
+          '600': '#3318ba', 
+          '700': '#2b149b', 
+          '800': '#22107c', 
+          '900': '#1c0d65',
+        },
+        'malibu': {
+          '50': '#f7fcff', 
+          '100': '#eefafe', 
+          '200': '#d5f2fe', 
+          '300': '#bbeafd', 
+          '400': '#89dbfb', 
+          '500': '#56cbf9', 
+          '600': '#4db7e0', 
+          '700': '#4198bb', 
+          '800': '#347a95', 
+          '900': '#2a637a',
+        },
+        'cucumber': {
+          '50': '#f9fbf7', 
+          '100': '#f4f6ee', 
+          '200': '#e3ead5', 
+          '300': '#d3ddbb', 
+          '400': '#b1c388', 
+          '500': '#90a955', 
+          '600': '#82984d', 
+          '700': '#6c7f40', 
+          '800': '#566533', 
+          '900': '#47532a',
+        },
+      },
+      fontFamily: {
+        sans: ['DM Sans', ...fontFamily.sans]
+      },
+    },
   },
   variants: {
     extend: {
       opacity: ['group-focus'],
     },
     backgroundColor: ['responsive', 'hover', 'focus', 'active'],
+    typography: ['dark'],
   },
-  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')]
+  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/aspect-ratio')]
 };

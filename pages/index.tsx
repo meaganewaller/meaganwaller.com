@@ -1,84 +1,36 @@
-import { convertToPostList, getPublishedPosts } from '@lib/notion/blogs'
-import { PostList } from '@components/PostList'
-import { GetStaticProps } from 'next'
-import { BlogData } from '@localTypes/blog'
-import PageLayout from "@components/PageLayout";
-import { ButtonType } from '@localTypes/button'
-import { Button } from '@components/Button'
-import { useRouter } from 'next/router'
-import Repos from '@components/Repos';
-import Graph from '@components/Graph';
+import { PostData } from "@localTypes/blog";
+import { getAllPosts, convertToPostList } from "@lib/notion/blogs";
+import { Footer } from "@components/Footer";
+import { GetStaticProps } from "next";
+import { HeroPostList } from "@components/HeroPostList";
+import Header from "@components/Landing/Header"
+import Hero from "@components/Landing/Hero";
+import Features from "@components/Landing/Features";
 
 interface Props {
-  latestBlogData: BlogData[]
+  posts: PostData[];
 }
 
+const HomePage = ({ posts }: Props) => (
+  <>
+    <Header />
+    <HeroPostList posts={posts} />
+    <Features />
+    <Hero />
+    <Footer />
+  </>
+);
+
+export default HomePage;
+
 export const getStaticProps: GetStaticProps = async () => {
-  const data = await getPublishedPosts(3);
-  const { posts } = convertToPostList(data);
+  const data = await getAllPosts(5)
+  const { posts } = convertToPostList(data)
 
   return {
     props: {
-      latestBlogData: posts,
+      posts
     },
-    revalidate: 60,
-  };
-};
-
-export default function Home({ latestBlogData }: Props) {
-  const { push } = useRouter();
-
-  return (
-    <PageLayout title="Home">
-      <div>
-        <div>
-          <div className="grid items-center grid-cols-1 mt-12 text-center md:mt-24 md:text-left md:grid-cols-6">
-            <h1 className="order-2 col-span-5 text-4xl leading-tight md:leading-normal md:order-1 sm:text-5xl">
-              I'm{' '}
-              <span className="text-teal-500 dark:text-teal-400">Meagan</span>.
-              I'm a developer, blogger, and digital organization enthusiast working at Test Double.
-            </h1>
-          </div>
-          <div className="space-y-6 md:space-y-0 md:space-x-4">
-            <Button
-              buttonType={ButtonType.PRIMARY}
-              onButtonClick={() => push('/blog')}
-            >
-              Read the blog
-            </Button>
-            <Button
-              buttonType={ButtonType.SECONDARY}
-              onButtonClick={() => push('/about')}
-            >
-              More about me
-            </Button>
-          </div>
-        </div>
-        <hr className="hr"></hr>
-        <div>
-          <h2>I love to share what I've learned.</h2>
-          <p>Check out my recent posts.</p>
-          <PostList posts={latestBlogData} />
-          <div className="my-16">
-            <Button
-              buttonType={ButtonType.PRIMARY}
-              onButtonClick={() => push('/blog')}
-            >
-              See all posts
-            </Button>
-          </div>
-          <div className="mt-16">
-            <span>Some subscription module here</span>
-          </div>
-        </div>
-        <hr className="hr" />
-        <div>
-          <h2>Community</h2>
-          <p>Building in public.</p>
-          <Repos />
-          <Graph />
-        </div>
-      </div>
-    </PageLayout>
-  );
+    revalidate: 30
+  }
 }
