@@ -89,12 +89,6 @@ img {
   @apply border-0 inline-block max-w-full align-middle;
 }
 
-/* #__next { */
-/*   display: flex; */
-/*   flex-direction: column; */
-/*   min-height: 100vh; */
-/* } */
-
 .card-section {
   @apply flex flex-row justify-around; 
 }
@@ -130,4 +124,13 @@ img {
   @apply bg-bottom bg-repeat-x; 
   background-image: url( '/static/images/squiggle.svg' );
   background-origin: padding-box;
+}
+
+.blocky-shadow {
+  box-shadow: 5px 5px var(--color-text-primary);
+}
+
+.rainbow-gradient {
+  background: linear-gradient(79deg, rgba(202,222,102,1) 21%, rgba(144,89,212,1) 58%, rgba(86,203,249,1) 100%);
+  filter: blur(15px);
 }

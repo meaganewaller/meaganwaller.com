@@ -1,9 +1,10 @@
-import { ThemeProvider } from 'next-themes';
+import { ThemeProvider } from 'next-themes'
 import '../styles/tailwind.css'
 import '../styles/app.css'
+import '../styles/prism.css'
 
-import type { AppProps } from 'next/app';
-import Head from 'next/head';
+import type { AppProps } from 'next/app'
+import Head from 'next/head'
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <>
@@ -14,6 +15,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
       <Component {...pageProps} />
     </ThemeProvider>
   </>
-);
+)
 
-export default MyApp;
+export default MyApp

@@ -53,7 +53,7 @@ const Header = () => {
         </Link>
         <div className="flex text-emerald-900">
           {nav.main.map((item) => {
-            return <NavItem href={item.href} text={item.title} target={item.target} />
+            return <NavItem href={item.href} text={item.title} target={item.target} key={item.title} />
           })}
         </div>
       </motion.div>
@@ -61,7 +61,7 @@ const Header = () => {
         <div className="px-16 pt-16 pb-0 mx-auto -mb-4 text-yellow-green-500" style={{ maxWidth: "100vw" }}>
           <Link
             href="/"
-            aria-curent="page"
+            aria-current="page"
             className="block mx-auto w-full max-w-full text-base cursor-pointer -order-1"
             style={{ textDecoration: "none" }}
           >

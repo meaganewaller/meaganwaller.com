@@ -50,6 +50,7 @@ export const nav = {
 
 export const social = {
   image: "/assets/banner.png",
+  twitterUsername: "meaganewaller",
   github: {
     username: "meaganewaller",
     repo: "meaganwaller.com",

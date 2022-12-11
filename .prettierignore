@@ -1,0 +1,13 @@
+public/sitemap.xml
+public/robots.txt
+public/sw*
+public/workbox*
+public/fallback*
+node_modules
+*.log
+*.lock
+LICENSE
+.DS_Store
+.env.local
+.next
+.vercel

@@ -70,8 +70,8 @@ export default function Features() {
             {features.map((feature) => (
               <div 
                 key={feature.name} 
-                className="flex flex-col justify-center items-center py-10 px-8 h-full leading-5 text-center text-black bg-white rounded-xl border border-black border-solid"
-                style={{boxShadow: 'rgba(0, 0, 0, 0.05) 0px 0px 0px 1px', gridArea: 'span 1 / span 1 / span 1 / span 1'}}
+                className="blocky-shadow flex flex-col justify-center items-center py-10 px-8 h-full leading-5 text-center text-black bg-white rounded-xl border border-black border-solid"
+                style={{gridArea: 'span 1 / span 1 / span 1 / span 1'}}
               >
                 <div 
                   className={clsx("flex justify-center items-center mb-6 w-16 h-16 text-center border border-black border-solid", feature.color)}
