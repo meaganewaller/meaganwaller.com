@@ -1,12 +1,13 @@
 const { fontFamily } = require('tailwindcss/defaultTheme')
+const plugin = require('tailwindcss/plugin')
 
 module.exports = {
   content: ["./pages/**/*.tsx", "./layouts/**/*.tsx", "./components/**/*.tsx", "./lib/**/*.tsx"],
   darkMode: 'class',
   theme: {
     screens: {
-      md: '767px',
-      lg: '991px',
+      md: '640px',
+      lg: '1024px',
       xl: '1500px',
     },
     extend: {
@@ -30,7 +31,34 @@ module.exports = {
       },
       zIndex: {
         '-10': '-10',
-        '-20': '-20',
+      },
+      fontSize: {
+        xl: '1.375rem',
+        '2xl': '1.5625rem',
+        '3xl': '1.875rem',
+        '4xl': '2.5rem',
+        '5xl': '3.125rem',
+        '6xl': '3.75rem',
+        '7xl': '4.375rem',
+      },
+      gridTemplateRows: {
+        'max-content': 'max-content',
+      },
+      spacing: {
+        '5vw': '5vw',
+        '8vw': '8vw',
+        '10vw': '10vw',
+      },
+      maxWidth: {
+        '8xl': '96rem',
+      },
+      maxHeight: {
+        '50vh': '50vh',
+        '75vh': '75vh',
+      },
+      rotate: {
+        '-135': '-135deg',
+        135: '135deg',
       },
       colors: {
         transparent: 'transparent',
@@ -241,5 +269,11 @@ module.exports = {
     backgroundColor: ['responsive', 'hover', 'focus', 'active'],
     typography: ['dark'],
   },
-  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/aspect-ratio'), require('@tailwindcss/line-clamp') ],
+  plugins: [
+    plugin(function({ addVariant }) {
+      addVariant('not-last', '&:not(:last-child)')
+    }),
+    require('@tailwindcss/typography'), 
+    require('@tailwindcss/aspect-ratio'), 
+    require('@tailwindcss/line-clamp') ],
 }

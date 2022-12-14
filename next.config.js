@@ -2,7 +2,7 @@
 const config = {
   reactStrictMode: true,
   images: {
-    domains: ["meaganwaller.com", "proxy.meaganwaller.com", "unsplash.com", "twemoji.maxcdn.com", "s3.us-west-2.amazonaws.com"],
+    domains: ["meaganwaller.com", "proxy.meaganwaller.com", "unsplash.com", "twemoji.maxcdn.com", "s3.us-west-2.amazonaws.com", "www.notion.so"],
   },
   webpack: (config, { dev, isServer }) => {
     if (!dev && !isServer) {
@@ -30,11 +30,6 @@ const config = {
   },
   async redirects() {
     return [
-      {
-        source: "/post/:path*",
-        destination: "/posts/:path*",
-        permanent: true,
-      },
       {
         source: "/sponsor",
         destination: "https://github.com/sponsors/meaganewaller",
