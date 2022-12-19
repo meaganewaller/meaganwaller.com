@@ -23,7 +23,7 @@ const features = [
     name: 'Developer Environment',
     description: 'Take control of your environment with tools to accelerate your workflow and turn you into a power user.',
     icon: HiOutlineCommandLine,
-    color: 'bg-goldenrod-200',
+    color: 'bg-yellow-200',
   },
   {
     name: 'Git',
@@ -41,13 +41,13 @@ const features = [
     name: 'Typescript',
     description: 'Shore up your JavaScript by learning TypeScript and take advantage of the explicit type system',
     icon: SiTypescript,
-    color: 'bg-medium-purple-100',
+    color: 'bg-purple-100',
   },
   {
     name: 'Tailwind CSS',
     description: 'Quickly build beautiful websites with this utility-first CSS framework',
     icon: SiTailwindcss,
-    color: 'bg-lime-100',
+    color: 'bg-green-100',
   },
 ]
 export default function Features() {

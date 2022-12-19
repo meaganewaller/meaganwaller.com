@@ -1,7 +1,6 @@
-import { footer, meta } from "@data/meta";
+import { footer } from "@data/meta";
 import Link from "next/link";
 import Logo from "@components/Icons/Logo"
-import SvgComponent from "./Icons/Circle";
 
 export function Footer() {
   return (

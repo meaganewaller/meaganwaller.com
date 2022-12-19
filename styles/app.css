@@ -78,10 +78,6 @@ html {
   @apply h-full font-sans text-base text-black;
 }
 
-a {
-  @apply no-underline;
-}
-
 body {
   @apply min-h-full font-normal text-gray-800 bg-white xl:text-base;
   font-size: 1.11111vw; 

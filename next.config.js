@@ -2,15 +2,26 @@
 const config = {
   reactStrictMode: true,
   images: {
-    domains: ["meaganwaller.com", "proxy.meaganwaller.com", "unsplash.com", "twemoji.maxcdn.com", "s3.us-west-2.amazonaws.com", "www.notion.so"],
+    domains: ["res.cloudinary.com", "meaganwaller.com", "proxy.meaganwaller.com", "unsplash.com", "twemoji.maxcdn.com", "s3.us-west-2.amazonaws.com", "www.notion.so"],
   },
   webpack: (config, { dev, isServer }) => {
-    if (!dev && !isServer) {
-      Object.assign(config.resolve.alias, {
-        fs: "browserify-fs",
-      })
+    if (isServer) return config
+
+    const { resolve } = config
+
+    return {
+      ...config,
+      resolve: {
+        ...resolve,
+        fallback: {
+          ...resolve.fallback,
+          net: false,
+          tls: false,
+          fs: false,
+          child_process: false,
+        },
+      },
     }
-    return config
   },
   async rewrites() {
     return [

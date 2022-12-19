@@ -25,13 +25,13 @@ export default function HeroPostList({ blogs }: Props) {
         <div className="mb-6">
           <article className="overflow-hidden relative hover:opacity-80">
             <figure className="order-2">
-              <Link href={featuredPost.url}>
+              <Link href={featuredPost.url} passHref>
                 <CldImage src={featuredPost.image} alt={featuredPost.description} width={1200} height={630} className="object-cover w-full h-[485px]" style={{ objectPosition: "50% 50%" }} />
               </Link>
             </figure>
             <div className="flex py-2 px-5 absolute flex-col flex-nowrap lg:p-5 xl:p-5" style={{bottom: "8px"}}>
               <h2 className="bg-emerald-900 p-2 text-xl leading-6 mb-1 mt-2 lg:text-2xl xl:text-2xl lg:leading-7 xl:leading-7">
-                <Link href={featuredPost.url} className="text-yellow-green-500">
+                <Link passHref href={featuredPost.url} className="text-yellow-green-500">
                   {featuredPost.title}
                 </Link>
               </h2>
@@ -41,14 +41,14 @@ export default function HeroPostList({ blogs }: Props) {
                 <span>Category</span>
               </div>
             </div>
-            <Link href={featuredPost.url} className="overflow-hidden absolute inset-0 whitespace-no-wrap z-10" style={{ textIndent: "-100%" }}>Read more</Link>
+            <Link passHref href={featuredPost.url} className="overflow-hidden absolute inset-0 whitespace-no-wrap z-10" style={{ textIndent: "-100%" }}>Read more</Link>
           </article>
         </div>
         <div className="featured-posts__right pl-0 lg:pl-10 xl:pl-10">
           {blogs.slice(1).map((post => (
             <article className="c-card c-card--horizontal grid items-center px-0 pt-0 pb-4 gap-6 grid-cols-[1fr_100px] lg:grid-cols-[1fr_120px] xl:grid-cols-[1fr_120px] not-last:border-solid not-last:border-b not-last:mx-0 not-last:mt-0 not-last:mb-5 not-last:border-orange">
               <figure className="c-card__image order-2 hover:opacity-80">
-                <Link href={post.url}>
+                <Link passHref href={post.url}>
                   <CldImage 
                     src={post.image} 
                     alt={post.description} 
@@ -58,7 +58,7 @@ export default function HeroPostList({ blogs }: Props) {
               </figure>
               <div className="c-card__body flex flex-grow order-1 flex-col flex-nowrap">
                 <h2 className="c-card__title text-xl leading-6 mt-2 text-yellow-green-500 font-medium lg:text-2xl xl:text-2xl lg:leading-7 xl:leading-7">
-                  <Link href={post.url} className="block hover:text-yellow-green-300">{post.title}</Link>
+                  <Link passHref href={post.url} className="block hover:text-yellow-green-300">{post.title}</Link>
                 </h2>
                 <div className="text-yellow-green-500 bg-transparent self-start font-semibold relative -order-1 uppercase tracking-wider text-xs p-2 border-2 border-yellow-green-500 hover:border-yellow-green-300 hover:text-yellow-green-300 shadow-none inset-0">
                   <span className="sr-only">Posted in: </span>

@@ -5,6 +5,7 @@ export const meta = {
   url: "https://meaganwaller.com",
   theme_color: "#5485f2",
   type: "website",
+  theme: 'light',
 };
 
 export const header = {
@@ -55,6 +56,7 @@ export const social = {
     username: "meaganewaller",
     repo: "meaganwaller.com",
   },
+  facebookIdentifer: "",
 };
 
 export const footer = {

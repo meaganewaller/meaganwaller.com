@@ -55,12 +55,9 @@ export enum NotionBlock {
 }
 
 export type BlogStatus = "Draft" | "Published"
-
 export interface BlogPost {
   id: string
-  cover: {
-    url: string
-  }
+  cover: { url: string }
   status: BlogStatus
   created: string
   title: string
@@ -68,6 +65,69 @@ export interface BlogPost {
   url: string
   lastEdited: string
   image: string
+  author: string
+  category: string
+  tags: string[]
+}
+
+export interface BlogCategory {
+  id: string
+  cover: { url: string }
+  title: string
+  description: string
+  url: string
+  textColor: string
+  fillColor: string
+  color: string
+  blogPosts: BlogPost[]
+}
+
+export interface BlogCategoryProperties {
+  Name: {
+    id: "title"
+    type: "title"
+    title: [
+      {
+        plain_text: string
+      }
+    ]
+  }
+  Description: {
+    id: string
+    type: "rich_text"
+    rich_text: [
+      {
+        type: "text"
+        plain_text: string
+      }
+    ]
+  }
+  Image: {
+    id: string
+    type: "rich_text"
+    rich_text: [
+      {
+        type: "text"
+        plain_text: string
+      }
+    ]
+  }
+  "Blog Posts": {
+    id: string
+    type: "relation"
+    relation?: [{
+
+    }]
+  }
+  "Category Color": {
+    id: string
+    type: "select"
+    select?: {
+      id: string
+      name: string
+      color: string
+    }
+  }
 }
 
 export interface BlogPostProperties {
@@ -114,6 +174,47 @@ export interface BlogPostProperties {
       {
         type: "text"
         plain_text: string
+      }
+    ]
+  }
+  Category: {
+    id: string,
+    type: "select",
+    select?: {
+      id: string
+      name: BlogStatus
+      color: string
+    }
+  }
+  Tags: {
+    id: string,
+    type: "multi_select",
+    multi_select?: [
+      {
+        id: string
+        name: string
+        color: string
+      }
+    ]
+  }
+  Author: {
+    id: string,
+    type: "people",
+    people: [
+      {
+        id: string,
+        name: string,
+        type: "person" | "bot"
+      }
+    ]
+  }
+  Slug: {
+    id: string
+    type: "rich_text"
+    rich_text: [
+      {
+        plain_text: string
+        type: "text"
       }
     ]
   }
