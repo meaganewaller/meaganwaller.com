@@ -62,7 +62,7 @@ export default function BlogPage({ blogs, categories }: BlogPageProps) {
             <FeaturedPost featuredPost={blogs[0]} />
 
             {blogs.slice(1).map((post) => (
-              <article className="story col-span-12 lg:col-span-4">
+              <article className="story col-span-12 lg:col-span-4" key={post.id}>
                <Link className="story__img rounded" href={post.url}>
                   <figure>
                     <Image src={postImageUrl(post.image)} alt={post.description} width={1200} height={630} />

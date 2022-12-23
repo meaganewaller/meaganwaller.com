@@ -39,7 +39,7 @@ export default function Newsletter() {
     <section className="newsletter mt-52 py-12 lg:py-20 text-center" id="newsletter">
       <div className="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-xl">
         <div className="text-component mb-5 lg:mb-8 font-secondary dark:text-secondary-light">
-          <h2 className="text-secondary font-secondary">A newsletter you'll <span className="italic">actually</span> open</h2>
+          <h2 className="text-secondary font-secondary">{`A newsletter you'll`}<span className="italic">actually</span> open</h2>
           <p>Get the monthly recap with the latest updates, posts, and resources.</p>
         </div>
 

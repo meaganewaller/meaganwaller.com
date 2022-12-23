@@ -41,7 +41,7 @@ export default function MainLayout({ categories, blogs, children, custom_meta }:
         {meta.twitter && <meta property="article:published_time" content={meta.twitter} />}
         {meta.date && <meta property="article:published_time" content={meta.date} />}
       </Head>
-      <Nav />
+      {/* <Nav /> */}
       <div className="m-0 min-w-0 flex-grow flex-shrink basis-auto min-h-screen mt-24">
         {children}
       </div>

@@ -7,7 +7,7 @@ import { FaArrowRight, FaCodepen, FaRss, FaTwitter } from "react-icons/fa";
 function NewsletterSection() {
   return (
     <div id="newsletter">
-      <h6>A newsletter you'll <em>actually</em> open</h6>
+      <h6>{`A newsletter you'll`} <em>actually</em> open</h6>
       <div className="mt-4 max-w-md">
         <p>
           Subscribe to the newsletter to stay up to date with articles, guides, courses, and more!
