@@ -40,7 +40,6 @@
       "@localTypes/*": [
         "types/*"
       ],
-      "@/*": ["./app/*"]
     },
     "typeRoots": [
       "./node_modules/@types",
