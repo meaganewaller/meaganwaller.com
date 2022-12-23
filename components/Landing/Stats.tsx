@@ -1,8 +1,8 @@
 export default function Stats() {
   return (
-    <section className="py-12 leading-6 text-black border-0 border-solid lg:py-20 sm:py-16 border-zinc-200 bg-zinc-50">
-        <div className="px-4 mx-auto max-w-7xl text-black border-0 border-solid lg:px-8 sm:px-6 border-zinc-200">
-          <div className="mx-auto max-w-2xl text-center border-0 border-solid xl:max-w-4xl border-zinc-200">
+    <section className="py-12 leading-6 text-black border-0 border-solid lg:py-20 sm:py-16 border-zinc-200 bg-zinc-50" id="Metrics">
+      <div className="px-4 mx-auto max-w-7xl text-black border-0 border-solid lg:px-8 sm:px-6 border-zinc-200">
+        <div className="mx-auto max-w-2xl text-center border-0 border-solid xl:max-w-4xl border-zinc-200">
           <div className="inline-block justify-center items-center py-1 px-3 mb-4 text-xs font-semibold tracking-wider leading-4 uppercase bg-red-200 border border-black border-solid" style={{borderRadius: '44px'}}>
             <div className="tracking-wide uppercase">Stats</div>
           </div>

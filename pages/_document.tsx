@@ -18,7 +18,7 @@ export default function Document({ props }) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true"/>
         <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400;1,600&family=Prata&display=swap" rel="stylesheet"/>
       </Head>
-      <body className="bg-white dark:bg-secondary">
+      <body>
         <Main {...props} />
         <NextScript />
       </body>

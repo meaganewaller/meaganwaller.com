@@ -1,15 +1,15 @@
-import type { NextPage } from "next"
 import { useRouter } from "next/router"
 
 import Header from "@components/Landing/Header"
-import HeroPostList from "@components/HeroPostList"
 import Features from "@components/Landing/Features"
 import Hero from "@components/Landing/Hero"
 import { Footer } from "@components/Footer"
 
 import { getBlogList } from "services/notion"
 import { BlogPost } from "@localTypes/schema"
-import { getCurrentUrl } from "@lib/utils/url"
+import LandingLayout from "@layouts/Landing"
+import Newsletter from "@components/Landing/Newsletter"
+import PostList from "@components/Landing/PostList"
 
 interface HomeProps {
   blogData: BlogPost[]
@@ -19,13 +19,13 @@ export default function Home({ blogData }: HomeProps) {
   const router = useRouter()
 
   return (
-    <>
+    <LandingLayout>
       <Header />
-      <HeroPostList blogs={blogData} />
+      <PostList blogs={blogData} />
       <Features />
-      <Hero />
+      <Newsletter />
       <Footer />
-    </>
+    </LandingLayout>
   )
 }
 
@@ -33,7 +33,7 @@ export async function getStaticProps() {
   const blogData = await getBlogList()
   return {
     props: { 
-      blogData: blogData.slice(0, 4)
+      blogData: blogData.slice(0, 5)
     },
     revalidate: 30,
   }

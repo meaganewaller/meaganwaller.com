@@ -1,19 +1,14 @@
 import { meta as head_meta, social } from "@data/meta"
-import { Nav } from "@components/Elements/Navbar"
-import Footer from "@components/Elements/Footer"
 import { useRouter } from "next/router"
 import Head from "next/head"
-import { BlogCategory, BlogPost } from "@localTypes/schema"
 import { ReactNode } from "react"
 
-export interface MainLayoutProps {
-  categories: BlogCategory[]
-  blogs: BlogPost[]
+export interface LandingLayoutProps {
   children?: ReactNode
   [custom_meta:string]: any
 }
 
-export default function MainLayout({ categories, blogs, children, custom_meta }:MainLayoutProps) {
+export default function LandingLayout({ children, custom_meta }:LandingLayoutProps) {
   const router = useRouter()
   const meta = {
     ...head_meta,
@@ -41,11 +36,9 @@ export default function MainLayout({ categories, blogs, children, custom_meta }:
         {meta.twitter && <meta property="article:published_time" content={meta.twitter} />}
         {meta.date && <meta property="article:published_time" content={meta.date} />}
       </Head>
-      <Nav />
-      <div className="m-0 min-w-0 flex-grow flex-shrink basis-auto min-h-screen mt-24">
+      <div className="m-0 min-w-0 flex-grow flex-shrink basis-auto min-h-screen mt-0 bg-secondary dark:bg-primary-darker">
         {children}
       </div>
-      <Footer categories={categories} blogs={blogs} />
     </>
   )
 }

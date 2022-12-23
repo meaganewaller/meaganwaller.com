@@ -1,0 +1,774 @@
+@tailwind base;
+@tailwind components;
+
+/* colors + base typography */
+@layer base {
+  /* --------------------------------
+
+  (START) Global editor code https://codyhouse.co/ds/globals/colors
+
+-------------------------------- */
+:root, [data-theme="default"] {
+  --color-primary-darker: 224 73% 35%;
+  --color-primary-dark: 224 73% 41%;
+  --color-primary: 224 73% 47%;
+  --color-primary-light: 224 73% 53%;
+  --color-primary-lighter: 224 73% 59%;
+
+  --color-accent-darker: 33 81% 44%;
+  --color-accent-dark: 33 81% 50%;
+  --color-accent: 33 81% 56%;
+  --color-accent-light: 33 81% 62%;
+  --color-accent-lighter: 33 81% 72%;
+
+  --color-secondary-darker: 222 81% 61%;
+  --color-secondary-dark: 222 81% 67%;
+  --color-secondary: 222 81% 73%;
+  --color-secondary-light: 222 81% 79%;
+  --color-secondary-lighter: 222 81% 85%;
+
+  --color-tertiary-darker: 6 89% 66%;
+  --color-tertiary-dark: 6 89% 72%;
+  --color-tertiary: 6 89% 78%;
+  --color-tertiary-light: 6 89% 84%;
+  --color-tertiary-lighter: 6 89% 90%;
+
+  --color-black: 209 100% 8%;
+  --color-white: 13 90% 96%;
+
+  /* feedback */
+  --color-warning-darker: 48 96% 41%;
+  --color-warning-dark: 48 96% 47%;
+  --color-warning: 48 96% 53%;
+  --color-warning-light: 48 96% 59%;
+  --color-warning-lighter: 48 96% 65%;
+
+  --color-success-darker: 142 71% 33%;
+  --color-success-dark: 142 71% 39%;
+  --color-success: 142 71% 45%;
+  --color-success-light: 142 71% 51%;
+  --color-success-lighter: 142 71% 57%;
+
+  --color-error-darker: 0 84% 48%;
+  --color-error-dark: 0 84% 54%;
+  --color-error: 0 84% 60%;
+  --color-error-light: 0 84% 66%;
+  --color-error-lighter: 0 84% 72%;
+
+  /* background */
+  --color-floor-darker: 220 5% 89%;
+  --color-floor-dark: 210 5% 93%;
+  --color-floor: 0 0% 98%;
+  --color-floor-light: 210 5% 100%;
+  --color-floor-lighter: 220 5% 100%;
+
+  /* color contrasts */
+  --color-contrast-lower: 225 5% 85%;
+  --color-contrast-low: 220 5% 67%;
+  --color-contrast-medium: 220 6% 52%;
+  --color-contrast-high: 216 13% 30%;
+  --color-contrast-higher: 215 28% 17%;
+
+  /* main */
+  --diagonal-section-offset: 50px;
+}
+
+[data-theme="dark"] {
+  /* main */
+  --color-primary-darker: 224 73% 72%;
+  --color-primary-dark: 224 73% 78%;
+  --color-primary: 224 73% 84%;
+  --color-primary-light: 224 73% 92%;
+  --color-primary-lighter: 224 73% 100%;
+
+  --color-accent-darker: 33 81% 44%;
+  --color-accent-dark: 33 81% 50%;
+  --color-accent: 33 81% 56%;
+  --color-accent-light: 33 81% 62%;
+  --color-accent-lighter: 33 81% 68%;
+
+  --color-secondary-darker: 6 90% 80%;
+  --color-secondary-dark: 6 90% 86%;
+  --color-secondary: 6 90% 92%;
+  --color-secondary-light: 6 90% 96%;
+  --color-secondary-lighter: 6 90% 100%;
+
+  --color-tertiary-darker: 225 80% 84%;
+  --color-tertiary-dark: 225 80% 90%;
+  --color-tertiary: 225 80% 96%;
+  --color-tertiary-light: 225 80% 98%;
+  --color-tertiary-lighter: 225 80% 100%;
+
+  --color-black: 338 13% 12%;
+  --color-white: 0 0% 100%;
+
+  /* feedback */
+  --color-warning-darker: 35 79% 48%;
+  --color-warning-dark: 35 79% 56%;
+  --color-warning: 35 79% 66%;
+  --color-warning-light: 35 79% 74%;
+  --color-warning-lighter: 35 79% 82%;
+
+  --color-success-darker: 164 87% 56%;
+  --color-success-dark: 164 87% 62%;
+  --color-success: 164 87% 68%;
+  --color-success-light: 164 87% 74%;
+  --color-success-lighter: 164 87% 80%;
+
+  --color-error-darker: 325 62% 44%;
+  --color-error-dark: 325 62% 50%;
+  --color-error: 325 62% 56%;
+  --color-error-light: 325 62% 62%;
+  --color-error-lighter: 325 62% 68%;
+
+  /* background */
+  --color-floor-darker: 213 42% 0%;
+  --color-floor-dark: 212 58% 3%;
+  --color-floor: 209 100% 8%;
+  --color-floor-light: 212 58% 13%;
+  --color-floor-lighter: 213 42% 16%;
+
+  /* color contrasts */
+  --color-contrast-lower: 216 31% 20%;
+  --color-contrast-low: 218 13% 37%;
+  --color-contrast-medium: 218 8% 54%;
+  --color-contrast-high: 223 7% 80%;
+  --color-contrast-higher: 0 0% 98%;
+
+}
+/* --------------------------------
+
+(END) Global editor code
+
+  -------------------------------- */
+
+  body, [data-theme] {
+    @apply bg-floor text-contrast-high;
+  }
+
+  /* --------------------------------
+
+  (START) Global editor code https://codyhouse.co/ds/globals/typography
+
+-------------------------------- */
+body {
+	@apply font-primary leading-[1.4];
+}
+
+h1, h2, h3, h4 {
+	@apply font-primary font-bold leading-[1.2];
+}
+
+/* --------------------------------
+
+(END) Global editor code
+
+  -------------------------------- */
+
+  body {
+    @apply text-base lg:text-xl;
+  }
+
+  h1, h2, h3, h4 {
+    @apply text-contrast-higher;
+  }
+
+  h1 {
+    @apply text-3xl lg:text-5xl;
+  }
+
+  h2 {
+    @apply text-2xl lg:text-4xl;
+  }
+
+  h3 {
+    @apply text-xl lg:text-3xl;
+  }
+
+  h4 {
+    @apply text-lg lg:text-2xl;
+  }
+
+  small {
+    @apply text-sm lg:text-base
+  }
+
+  a, .link {
+    @apply text-primary no-underline;
+  }
+  
+  strong {
+    @apply font-bold;
+  }
+  
+  s {
+   @apply line-through;
+  }
+  
+  u {
+    @apply underline;
+  }
+
+  mark {
+    @apply bg-accent/20 text-inherit;
+  }
+
+  /* no-js support */
+  html:not(.js) .no-js\:is-hidden {
+    display: none !important;
+  }
+}
+
+/* button components */
+
+/* --------------------------------
+
+  (START) Global editor code https://codyhouse.co/ds/globals/buttons
+
+-------------------------------- */
+@layer components {
+  .btn {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    @apply px-3 lg:px-5 py-1.5 lg:py-2 font-secondary;
+    background: hsl(var(--color-secondary-lighter));
+    color: hsl(var(--color-contrast-high));
+    border-radius: 25px;
+    cursor: pointer;
+    border: 1px solid hsl(var(--color-primary-lighter));
+    font-family: var(--font-secondary);
+    font-size: 1em;
+    text-transform: capitalize;
+    text-decoration: none;
+    line-height: 1.2;
+    letter-spacing: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: all 0.2s ease;
+    will-change: transform;
+  }
+
+  .btn:hover {
+    background: hsla(var(--color-primary-lighter) / 0.3);
+    cursor: pointer;
+  }
+
+  .btn:focus {
+    box-shadow: 0px 0px 0px 2px hsl(var(--color-floor)), 0px 0px 0px 4px hsla(var(--color-contrast-higher) / 0.15);
+    outline: none;
+  }
+
+  .btn:active {
+    transform: translateY(2px);
+  }
+
+  /* themes */
+  .btn--primary {
+    background: hsl(var(--color-secondary-light));
+    color: hsl(var(--color-primary-darker));
+    box-shadow: inset 0px 1px 0px hsla(var(--color-primary) / 0.15), 0px 1px 3px hsla(var(--color-primary-darker) / 0.25), 0px 2px 6px hsla(var(--color-primary-darker) / 0.1), 0px 6px 10px -2px hsla(var(--color-primary-darker) / 0.25);
+  }
+
+  .btn--primary:hover {
+    background: hsl(var(--color-secondary));
+    color: hsl(var(--color-primary-dark));
+    box-shadow: inset 0px 1px 0px hsla(var(--color-primary) / 0.15), 0px 1px 2px hsla(var(--color-primary-darker) / 0.25), 0px 1px 4px hsla(var(--color-primary-darker) / 0.1), 0px 3px 6px -2px hsla(var(--color-primary-darker) / 0.25);
+  }
+
+  .btn--primary:focus {
+    box-shadow: inset 0px 1px 0px hsla(var(--color-primary) / 0.15), 0px 1px 2px hsla(var(--color-primary-darker) / 0.25), 0px 1px 4px hsla(var(--color-primary-darker) / 0.1), 0px 3px 6px -2px hsla(var(--color-primary-darker) / 0.25), 0px 0px 0px 2px hsl(var(--color-floor)), 0px 0px 0px 4px hsl(var(--color-primary));
+  }
+
+  .btn--subtle {
+    background: hsl(var(--color-floor-light));
+    color: hsl(var(--color-contrast-high));
+    border: 1px solid hsl(var(--color-primary-darker));
+    box-shadow: inset 0px 1px 0px hsla(var(--color-white) / 0.1), 0px 0px 0px 1px hsla(var(--color-black) / 0.02), 0px 1px 3px -1px hsla(var(--color-black) / 0.2), 0px 1px 3px hsla(var(--color-black) / 0.2);
+  }
+
+  .btn--subtle:hover {
+    background: hsl(var(--color-floor-light));
+    box-shadow: inset 0px 1px 0px hsla(var(--color-white) / 0.1), 0px 0px 0px 1px hsla(var(--color-black) / 0.02), 0px 1px 3px -1px hsla(var(--color-black) / 0.2), 0px 1px 3px hsla(var(--color-black) / 0.2);
+  }
+
+  .btn--subtle:focus {
+    box-shadow: inset 0px 1px 0px hsla(var(--color-white) / 0.1), 0px 0px 0px 1px hsla(var(--color-black) / 0.02), 0px 1px 3px -1px hsla(var(--color-black) / 0.2), 0px 1px 3px hsla(var(--color-black) / 0.2), 0px 0px 0px 2px hsl(var(--color-floor)), 0px 0px 0px 4px hsl(var(--color-contrast-high));
+  }
+
+  .btn--accent {
+    background: hsl(var(--color-accent));
+    color: hsl(var(--color-floor-lighter));
+    border: 2px solid hsl(var(--color-accent-darker));
+    box-shadow: 0px 1px 3px  hsla(var(--color-black) / 0.2);
+  }
+
+  .btn--accent:hover {
+    background: hsl(var(--color-accent-light));
+    box-shadow: inset 0px 1px 0px hsla(var(--color-white) / 0.15), 0px 1px 2px hsla(var(--color-accent-darker) / 0.25), 0px 1px 4px hsla(var(--color-accent-darker) / 0.1), 0px 3px 6px -2px hsla(var(--color-accent-darker) / 0.1);
+  }
+
+  .btn--accent:focus {
+    box-shadow: inset 0px 1px 0px hsla(var(--color-white) / 0.15), 0px 1px 2px hsla(var(--color-accent-darker) / 0.25), 0px 1px 4px hsla(var(--color-accent-darker) / 0.1), 0px 3px 6px -2px hsla(var(--color-accent-darker) / 0.1), 0px 0px 0px 2px hsl(var(--color-floor)), 0px 0px 0px 4px hsl(var(--color-accent));
+  }
+
+  /* feedback */
+  .btn--disabled, .btn[disabled], .btn[readonly] {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  /* size */
+  .btn--sm {
+    font-size: 0.8em;
+  }
+
+  .btn--md {
+    font-size: 1.2em;
+  }
+
+  .btn--lg {
+    font-size: 1.4em;
+  }
+}
+/* --------------------------------
+
+(END) Global editor code
+
+-------------------------------- */
+
+/* input/form style  */
+
+/* --------------------------------
+
+  (START) Global editor code https://codyhouse.co/ds/globals/forms
+
+-------------------------------- */
+@layer components {
+  .form-control {
+    @apply px-2 lg:px-3 py-1.5 lg:py-2;
+    background: hsl(var(--color-floor-dark));
+    font-size: 1em;
+    line-height: 1.2;
+    box-shadow: inset 0px 0px 0px 1px hsl(var(--color-contrast-lower));
+    transition: all 0.2s ease;
+  }
+
+  .form-control::placeholder {
+    opacity: 1;
+    color: hsl(var(--color-contrast-low));
+  }
+
+  .form-control:focus, .form-control:focus-within {
+    background: hsl(var(--color-floor));
+    box-shadow: inset 0px 0px 0px 1px hsla(var(--color-contrast-lower) / 0), 0px 0px 0px 2px hsl(var(--color-primary)), 0px 1px 3px hsla(var(--color-black) / 0.2);
+    outline: none;
+  }
+
+  .form-control--disabled, .form-control[disabled], .form-control[readonly] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .form-control[aria-invalid="true"], .form-control.form-control--error {
+    box-shadow: inset 0px 0px 0px 1px hsla(var(--color-contrast-lower) / 0), 0px 0px 0px 2px hsl(var(--color-error));
+  }
+
+  .form-control[aria-invalid]:focus, .form-control[aria-invalid]:focus-within {
+    box-shadow: inset 0px 0px 0px 1px hsla(var(--color-contrast-lower) / 0), 0px 0px 0px 2px hsl(var(--color-error)), 0px 1px 3px hsl(var(--color-error));
+  }
+
+  .form-legend {
+    @apply mb-3 lg:mb-5;
+  }
+
+  .form-label {
+    display: inline-block;
+  }
+}
+/* --------------------------------
+
+(END) Global editor code
+
+-------------------------------- */
+
+/* text component + icon + inner shadow */
+@layer components {
+  /* Custom text component classes */
+  .text-component {
+    --line-height-multiplier: 1;
+    --text-space-y-multiplier: 1;
+    --heading-line-height: 1.2;
+    --body-line-height: 1.4;
+  }
+  .text-component.leading-extra-tight {
+    line-height: normal;
+    --heading-line-height: 1;
+    --body-line-height: 1.1;
+  }
+  .text-component.leading-tight {
+    --heading-line-height: 1.1;
+    --body-line-height: 1.2;
+    line-height: normal;
+  }
+  .text-component.leading-snug {
+    --heading-line-height: 1.15;
+    --body-line-height: 1.4;
+    line-height: normal;
+  }
+  .text-component.leading-normal {
+    --heading-line-height: 1.22;
+    --body-line-height: 1.58;
+    line-height: normal;
+  }
+  .text-component.leading-relaxed {
+    --heading-line-height: 1.3;
+    --body-line-height: 1.72;
+    line-height: normal;
+  }
+
+  .text-component.text-space-y-xxs {
+    --text-space-y-multiplier: 0.25;
+  }
+  .text-component.text-space-y-xs {
+    --text-space-y-multiplier: 0.5;
+  }
+  .text-component.text-space-y-sm {
+    --text-space-y-multiplier: 0.75;
+  }
+  .text-component.text-space-y-md {
+    --text-space-y-multiplier: 1.25;
+  }
+  .text-component.text-space-y-lg {
+    --text-space-y-multiplier: 1.5;
+  }
+  .text-component.text-space-y-xl {
+    --text-space-y-multiplier: 1.75;
+  }
+  .text-component.text-space-y-xxl {
+    --text-space-y-multiplier: 2;
+  }
+  
+  .text-component :where(h1), 
+  .text-component :where(h2), 
+  .text-component :where(h3), 
+  .text-component :where(h4) {
+    line-height: calc(var(--heading-line-height) * var(--line-height-multiplier, 1));
+    margin-bottom: calc(0.3125em * var(--text-space-y-multiplier, 1));
+  }
+  
+  .text-component :where(h2), 
+  .text-component :where(h3), 
+  .text-component :where(h4) {
+    margin-top: calc(0.9375em * var(--text-space-y-multiplier, 1));
+  }
+  
+  .text-component p, 
+  .text-component blockquote, 
+  .text-component ul li, 
+  .text-component ol li {
+    line-height: calc(var(--body-line-height) * var(--line-height-multiplier, 1));
+  }
+  
+  .text-component ul, 
+  .text-component ol, 
+  .text-component p, 
+  .text-component blockquote {
+    margin-bottom: calc(0.9375em * var(--text-space-y-multiplier, 1));
+  }
+  
+  .text-component :where(ul), 
+  .text-component :where(ol) {
+    list-style-position: inside;
+  }
+  
+  .text-component ul ul, 
+  .text-component ul ol,
+  .text-component ol ul, 
+  .text-component ol ol {
+    padding-left: 1em;
+    margin-bottom: 0;
+  }
+  
+  .text-component :where(ul) {
+    list-style-type: disc;
+  }
+  
+  .text-component :where(ol) {
+    list-style-type: decimal;
+  }
+  
+  .text-component :where(img) {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .text-component :where(figcaption) {
+    @apply text-contrast-low text-sm lg:text-base;
+    text-align: center;
+    margin-top: 0.5em;
+  }
+  
+  .text-component :where(em) { 
+    font-style: italic;
+  }
+  
+  .text-component :where(hr) {
+    @apply bg-contrast-lower;
+    height: 1px;
+    margin-top: calc(1.875em * var(--text-space-y-multiplier, 1));
+    margin-bottom: calc(1.875em * var(--text-space-y-multiplier, 1));
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+  }
+  
+  .text-component > *:first-child {
+    margin-top: 0;
+  }
+  
+  .text-component > *:last-child {
+    margin-bottom: 0;
+  }
+  
+  .text-component :where(blockquote) {
+    padding-left: 1em;
+    @apply border-l-4 border-contrast-lower;
+    font-style: italic;
+  }
+  
+  .article { /* e.g., blog posts */
+    --body-line-height: 1.58;
+    --text-space-y-multiplier: 1.2;
+  }
+
+  /* Icons */
+  .icon {
+    --size: 1em;
+    height: var(--size);
+    width: var(--size);
+    display: inline-block;
+    color: inherit;
+    fill: currentColor;
+    line-height: 1;
+    flex-shrink: 0;
+    max-width: initial;
+  }
+  
+  .icon--is-spinning {
+    animation: icon-spin 1s infinite linear;
+  }
+  
+  @keyframes icon-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* inner shadow */
+  :where(.inner-glow, .inner-glow-top) { 
+    position: relative;
+  }
+
+  .inner-glow::after,
+  .inner-glow-top::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+  
+  .inner-glow::after { box-shadow: inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.075); }
+  .inner-glow-top::after { box-shadow: var(inset 0 1px 0.5px hsla(0, 0%, 100%, 0.075)); }
+}
+
+/* #region CodyHouse components CSS */
+
+@supports ((-webkit-clip-path: inset(50%)) or (clip-path: inset(50%))) {
+  .diagonal-section, .diagonal-section-top.diagonal-section-bottom {
+    padding-top: calc(var(--diagonal-section-offset)/2);
+    padding-bottom: calc(var(--diagonal-section-offset)/2);
+    clip-path: polygon(0% 0%, 100% var(--diagonal-section-offset), 100% 100%, 0% calc(100% - var(--diagonal-section-offset)));
+  }
+
+  .diagonal-section--flip-x {
+    clip-path: polygon(0% var(--diagonal-section-offset), 100% 0%, 100% calc(100% - var(--diagonal-section-offset)), 0% 100%);
+  }
+
+  .diagonal-section-top {
+    padding-top: calc(var(--diagonal-section-offset)/2);
+    clip-path: polygon(0% 0%, 100% var(--diagonal-section-offset), 100% 100%, 0% 100%);
+  }
+
+  .diagonal-section-top--flip-x {
+    clip-path: polygon(0% var(--diagonal-section-offset), 100% 0%, 100% 100%, 0% 100%);
+  }
+
+  .diagonal-section-top--flip-x.diagonal-section-bottom {
+    clip-path: polygon(0% var(--diagonal-section-offset), 100% 0%, 100% 100%, 0% calc(100% - var(--diagonal-section-offset)));
+  }
+
+  .diagonal-section-bottom {
+    padding-bottom: calc(var(--diagonal-section-offset)/2);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% calc(100% - var(--diagonal-section-offset)));
+  }
+
+  .diagonal-section-bottom--flip-x {
+    clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - var(--diagonal-section-offset)), 0% 100%);
+  }
+
+  .diagonal-section-bottom--flip-x.diagonal-section-top {
+    clip-path: polygon(0% 0%, 100% var(--diagonal-section-offset), 100% calc(100% - var(--diagonal-section-offset)), 0% 100%);
+  }
+
+  .diagonal-section-top--flip-x.diagonal-section-bottom--flip-x {
+    clip-path: polygon(0% var(--diagonal-section-offset), 100% 0%, 100% calc(100% - var(--diagonal-section-offset)), 0% 100%);
+  }
+}
+
+/* --------------------------------
+
+File#: 1_article-preview
+Title: Article Preview
+Descr: Blog post excerpt, containing a link to the article page
+Usage: codyhouse.co/license
+
+-------------------------------- */
+.story__img {
+  display: block;
+  transition: opacity 0.2s;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+.story__img:hover {
+  opacity: 0.85;
+}
+.story__img img {
+  display: block;
+  width: 100%;
+}
+
+.story__category {
+  display: inline-flex;
+  align-items: center;
+  @apply text-contrast-higher;
+  line-height: 1;
+  text-decoration: none;
+  @apply text-sm lg:text-base;
+  @apply bg-primary/20;
+  padding: 0.375rem;
+  @apply rounded;
+  transition: background-color 0.2s;
+}
+@media (min-width: 64rem) {
+  .story__category {
+    padding: 0.5625rem;
+  }
+}
+.story__category:hover {
+  text-decoration: underline;
+  @apply bg-primary/30;
+}
+
+.story__title a {
+  @apply text-contrast-higher;
+  text-decoration: none;
+}
+.story__title a:hover {
+  text-decoration: underline;
+}
+
+.story__author {
+  --author-img-size: 50px;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 0.5rem;
+}
+@media (min-width: 64rem) {
+  .story__author {
+    gap: 0.75rem;
+  }
+}
+.story__author img {
+  display: block;
+  width: var(--author-img-size);
+  height: var(--author-img-size);
+  
+     object-fit: cover;
+  border-radius: 50%;
+}
+
+.story__author-name {
+  margin-bottom: 0.125rem;
+}
+@media (min-width: 64rem) {
+  .story__author-name {
+    margin-bottom: 0.1875rem;
+  }
+}
+.story__author-name a {
+  text-decoration: none;
+  @apply text-contrast-higher;
+}
+.story__author-name a:hover {
+  text-decoration: underline;
+}
+
+.story__meta {
+  @apply text-sm lg:text-base;
+  @apply text-contrast-medium;
+}
+
+@media (min-width: 64rem) {
+  .story--featured {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-gap: 2rem;
+    align-items: center;
+  }
+  .story--featured .story__img {
+    margin: 0;
+  }
+}
+.story--featured .story__title {
+  @apply lg:text-5xl;
+}
+
+/* -------------------------------- */
+
+
+/* #endregion */
+
+@tailwind utilities;
+
+/* custom utility classes */
+@layer utilities {
+  /* overflow */
+  .momentum-scrolling { -webkit-overflow-scrolling: touch;}
+
+  /* perspective */
+  .perspective-xs { perspective: 250px; }
+  .perspective-sm { perspective: 500px; }
+  .perspective-md { perspective: 1000px; }
+  .perspective-lg { perspective: 1500px; }
+  .perspective-xl { perspective: 3000px; }
+
+  /* text shadow */
+  .text-shadow-xs { text-shadow: 0 1px 1px rgba(#000, 0.15); }
+  .text-shadow-sm { text-shadow: 0 1px 2px rgba(#000, 0.25); }
+  .text-shadow-md { text-shadow: 0 1px 2px rgba(#000, 0.1), 0 2px 4px rgba(#000, 0.2); }
+  .text-shadow-lg { text-shadow: 0 1px 4px rgba(#000, 0.1), 0 2px 8px rgba(#000, 0.15), 0 4px 16px rgba(#000, 0.2); }
+  .text-shadow-xl { text-shadow: 0 1px 4px rgba(#000, 0.1), 0 2px 8px rgba(#000, 0.15), 0 4px 16px rgba(#000, 0.2), 0 6px 24px rgba(#000, 0.25); }
+  .text-shadow-none { text-shadow: none; }
+}
+

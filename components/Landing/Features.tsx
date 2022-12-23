@@ -11,6 +11,8 @@ import {
   SiTailwindcss,
 } from 'react-icons/si'
 
+import LandingSectionTitle from './SectionTitle'
+
 
 const features = [
   {
@@ -53,16 +55,16 @@ const features = [
 export default function Features() {
   return (
 
-    <div className="relative mx-auto w-full leading-5 text-black py-24 sm:py-32 lg:py-40" style={{maxWidth: '1140px'}}>
+    <div className="relative mx-auto w-full leading-5 sm-max:py-12 lg:py-0" style={{maxWidth: '1140px'}} id="categories">
       <div 
         className="mx-auto mb-12 text-center opacity-100 px-6"
         style={{transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)', opacity: 1, transformStyle: 'preserve-3d', maxWidth: '990px'}}
       >
-        <div className="inline-block justify-center items-center py-1 px-3 mb-4 text-xs font-semibold tracking-wider leading-4 uppercase bg-red-200 border border-black border-solid" style={{borderRadius: '44px'}}>
-          <div className="tracking-wide uppercase">Categories</div>
-        </div>
-        <h2 className="mt-0 mb-4 font-sans text-5xl font-medium tracking-tight" style={{lineHeight: '1.2'}}>Whatcha lookin for?</h2>
-        <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        <LandingSectionTitle title="Categories" />
+        <h2 className="mt-0 mb-4 font-primary text-5xl font-medium tracking-tight dark:text-secondary" style={{lineHeight: '1.2'}}>
+          Whatcha lookin for?
+        </h2>
+        <p className="mt-2 text-3xl font-semibold tracking-tight dark:text-secondary sm:text-4xl">
           Blog posts, tutorials, guides, snippets, and more.
         </p>
         <div className="mt-20">
@@ -70,23 +72,22 @@ export default function Features() {
             {features.map((feature) => (
               <div 
                 key={feature.name} 
-                className="blocky-shadow flex flex-col justify-center items-center py-10 px-8 h-full leading-5 text-center text-black bg-white rounded-xl border border-black border-solid"
+                className="blocky-shadow flex flex-col justify-center items-center py-10 px-8 h-full leading-5 text-center dark:text-contrast-lower dark:bg-primary-lighter rounded-xl border-2 dark:border-secondary-lighter border-solid"
                 style={{gridArea: 'span 1 / span 1 / span 1 / span 1'}}
               >
                 <div 
-                  className={clsx("flex justify-center items-center mb-6 w-16 h-16 text-center border border-black border-solid", feature.color)}
+                  className={clsx("flex justify-center items-center mb-6 w-16 h-16 text-center dark:bg-secondary-light border border-contrast-lower border-solid", feature.color)}
                   style={{borderRadius: '100%'}}
                 >
-                  <feature.icon className="flex justify-center items-center w-10 max-w-full h-10 text-black align-middle border-0" />
+                  <feature.icon className="flex justify-center items-center w-10 max-w-full h-10 dark:text-primary-dark align-middle border-0" />
                 </div>
                 <div className="mb-2 text-center">
-                  <h5 className="my-0 font-sans text-2xl font-medium tracking-tight" style={{lineHeight: '1.4'}}>
+                  <h5 className="my-0 font-primary text-2xl font-medium tracking-tight" style={{lineHeight: '1.4'}}>
                     {feature.name}
                   </h5>
                 </div>
-                <p className="my-0 text-base tracking-tight text-zinc-700" style={{lineHeight: '1.8'}}>
+                <p className="my-0 text-base tracking-tight dark:text-contrast-lower" style={{lineHeight: '1.8'}}>
                   {feature.description}
-
                 </p>
               </div>
             ))}

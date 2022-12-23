@@ -1,106 +1,39 @@
-@media (prefers-color-scheme: light) {
-  :root {
-    --color-bg-primary:     #f5f5f5;
-    --color-bg-secondary:   #ececec;
-    --color-bg-tertiary:    #cecece; 
-    --color-text-primary:   #111827; 
-    --color-text-secondary: #585d68;
-    --color-border-primary: #e7e8e9;
-    --color-graph-L:        #ccc;
-    --color-graph-L0:       #ebedf0;
-    --color-graph-L1:       #9be9a8;
-    --color-graph-L2:       #40c463;
-    --color-graph-L3:       #30a14e;
-    --color-graph-L4:       #216e39;
-    --color-orange-primary: #fa8e4d;
-    --color-code-primary:   #222222;
-    --color-code-comment:   #999999;
-  }
-
-  .dark {
-    --color-bg-primary:     #14191e;
-    --color-bg-secondary:   #1f2429;
-    --color-bg-tertiary:    #2b3034;
-    --color-text-primary:   #ededed;
-    --color-text-secondary: #9ca3af;
-    --color-border-primary: #1f2937;
-    --color-graph-L:        #464d53;
-    --color-graph-L0:       #1f2429;
-    --color-graph-L1:       #003820;
-    --color-graph-L2:       #00602d;
-    --color-graph-L3:       #10983d;
-    --color-graph-L4:       #27d545;
-    --color-orange-primary: #fb923c;
-    --color-code-primary:   #d4d4d4;
-    --color-code-comment:   #676f7d;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg-primary:     #14191e;
-    --color-bg-secondary:   #1f2429;
-    --color-bg-tertiary:    #2b3034;
-    --color-text-primary:   #ededed;
-    --color-text-secondary: #9ca3af;
-    --color-border-primary: #1f2937;
-    --color-graph-L:        #464d53;
-    --color-graph-L0:       #1f2429;
-    --color-graph-L1:       #003820;
-    --color-graph-L2:       #00602d;
-    --color-graph-L3:       #10983d;
-    --color-graph-L4:       #27d545;
-    --color-orange-primary: #fa8e4d;
-    --color-code-primary:   #d4d4d4;
-    --color-code-comment:   #676f7d;
-  }
-
-  .light {
-    --color-bg-primary:     #ffffff;
-    --color-bg-secondary:   #f3f4f6;
-    --color-bg-tertiary:    #e5e7eb;
-    --color-text-primary:   #111827;
-    --color-text-secondary: #6b7280;
-    --color-border-primary: #e5e7eb;
-    --color-graph-L:        #cccccc;
-    --color-graph-L0:       #ebedf0;
-    --color-graph-L1:       #9be9a8;
-    --color-graph-L2:       #40c463;
-    --color-graph-L3:       #30a14e;
-    --color-graph-L4:       #216e39;
-    --color-orange-primary: #fa8e4d;
-    --color-code-primary:   #222222;
-    --color-code-comment:   #999999;
-  }
-}
-
-html {
-  @apply h-full font-sans text-base text-black;
-}
-
-body {
-  @apply min-h-full font-normal text-gray-800 bg-white xl:text-base;
-  font-size: 1.11111vw; 
-  font-family: "DM Sans"; 
-  line-height: 1.6;
-}
-
-img {
-  @apply border-0 inline-block max-w-full align-middle;
-}
-
 .dotted-spaced {
-  @apply bg-bottom bg-dotted bg-repeat-x;
   background-image: linear-gradient(to right, currentColor 10%, rgba(255, 255, 255, 0) 0%);
+  background-position: bottom;
+  background-size: 8px 1px;
+  background-repeat: repeat-x;
 }
 
-@media only screen and (min-width: 767px) {
-  .dotted-left {
-    background-image: linear-gradient(currentColor 10%, rgba(255, 255, 255, 0) 0%);
-    background-position: top left;
-    background-size: 1px 8px;
+@media only screen and (min-width: 768px) {
+  .dotted-right {
+    background-image:  
+      linear-gradient(currentColor 10%, rgba(255, 255, 255, 0) 0%); 
+    background-position: top right; 
+    background-size: 1px 8px; 
     background-repeat: repeat-y;
   }
+
+  .dotted-left { 
+    background-image:  
+      linear-gradient(currentColor 10%, rgba(255, 255, 255, 0) 0%); 
+    background-position: top left; 
+    background-size: 1px 8px; 
+    background-repeat: repeat-y; 
+  }
+}
+
+.squiggle.active {
+  @apply bg-no-repeat bg-bottom; 
+  background-image: url( '/static/images/squiggle.svg' );
+  background-position: bottom;
+  background-size: 90%;
+}
+
+.squiggle:not(.active):hover {
+  @apply bg-no-repeat bg-bottom; 
+  background-image: url( '/static/images/squiggle.svg' );
+  background-size: 90%;
 }
 
 .grid-background {
@@ -109,206 +42,44 @@ img {
   background-image: linear-gradient(to right, rgb(235, 235, 235) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(rgb(235, 235, 235) 1px, rgba(0, 0, 0, 0) 1px);
 }
 
-.squiggle.active {
-  @apply bg-bottom bg-repeat-x; 
-  background-image: url( '/static/images/squiggle.svg' );
-  background-origin: padding-box;
-}
-
-.squiggle:not(.active):hover {
-  @apply bg-bottom bg-repeat-x; 
-  background-image: url( '/static/images/squiggle.svg' );
-  background-origin: padding-box;
-}
-
 .blocky-shadow {
-  box-shadow: 5px 5px var(--color-text-primary);
+  box-shadow: 5px 5px hsl(var(--color-secondary-light));
 }
 
-.rainbow-gradient {
-  background: linear-gradient(79deg, rgba(202,222,102,1) 21%, rgba(144,89,212,1) 58%, rgba(86,203,249,1) 100%);
-  filter: blur(15px);
+.newsletter {
+  position: relative;
+  z-index: 1;
 }
 
-.container {
-  @apply mx-auto p-16 w-full;
-  max-width: 1440px;
+.input-container {
+  @apply relative flex flex-col;
 }
 
-.container._2em-tm {
-  @apply pt-12;
+.input-container:focus-within label {
+  @apply text-primary;
+  transform: translate(0, 12px) scale(0.8);
 }
 
-.container._2em-tm.red-highlight {
-  @apply text-orange;
+.input-container .filled {
+  transform: translate(0, 12px) scale(0.8);
 }
 
-.card_section {
-  @apply flex flex-row justify-around;
+.input-container label {
+  @apply absolute pointer-events-none left-[16px] text-primary;
+  transform: translate(0, 23px) scale(1);
+  transform-origin: top left;
+  transition: 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  font-size: 16px;
+  line-height: 1;
 }
 
-.card_section.dotted-left {
-  @apply h-auto;
+.input-container input {
+  @apply h-16 rounded-full border-none pt-6 pr-4 pb-1 pl-4 outline-none shadow-none; 
+  font-size: 16px;
+  line-height: 1;
+  transition: 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
 }
 
-.card_featured {
-  @apply self-stretch flex-grow;
+.input-container input:focus {
+  box-shadow: 0 0 0 2px var(hsl(--color-secondary-light));
 }
-
-.card_featured.dotted-right {
-  border-left-style: none;
-}
-
-.card_featured_inner {
-  @apply border-black border-dotted border-b h-full mx-4;
-}
-
-.card_featured_inner.dotted-spaced {
-  @apply ml-0 mr-8;
-}
-
-.card_featured_wrap {
-  @apply h-auto;
-}
-
-.card_featured_item {
-  @apply flex flex-col h-full pb-0 text-center;
-}
-
-.w-inline-block {
-  @apply inline-block max-w-full;
-}
-
-.card_image_featured {
-  @apply mb-8;
-}
-
-.card_featured_title_wrap {
-  @apply pl-0 pr-8 pb-12 text-left text-yellow-green-500;
-}
-
-.tag {
-  @apply font-medium text-sm leading-none mb-3 uppercase font-sans; 
-}
-
-.card_4_col_wrapper {
-  @apply flex self-stretch flex-grow;
-}
-
-.card_4_col_wrap {
-  @apply border-black border-r flex flex-row flex-wrap self-stretch flex-grow -mr-8;
-}
-
-.card_4_grid {
-  @apply self-stretch flex-grow-0;
-  flex-basis: 50%;
-}
-
-.card_4_grid_inner {
-  @apply border-black border-dotted border-b h-full mx-2;
-}
-
-.card_4_grid_inner.dotted-spaced {
-  @apply flex flex-col mx-8;
-}
-
-.card_image_4 {
-  @apply w-full;
-}
-
-/* @media screen and (max-width: 991px) { */
-/*   .container { */
-/*     @apply px-12; */
-/*   } */
-
-/*   .card_section { */
-/*     @apply h-auto w-full; */
-/*   } */
-
-/*   .card_featured_inner.dotted-spaced { */
-/*     @apply ml-0 mr-8; */
-/*   } */
-
-/*   .card_featured_item { */
-/*     @apply pb-12; */
-/*   } */
-
-/*   .card_featured_title_wrap { */
-/*     @apply pr-0; */
-/*   } */
-/* } */
-
-/* @media screen and (max-width: 767px) { */
-/*   .container { */
-/*     @apply px-12; */
-/*   } */
-
-/*   .card_section { */
-/*     @apply flex-col; */
-/*   } */
-
-/*   .card_section { */
-/*     @apply flex-col; */
-/*   } */
-
-/*   .card_section.dotted-left { */
-/*     @apply flex-col-reverse; */
-/*   } */
-
-/*   .card_featured_inner.dotted-spaced { */
-/*     @apply mx-0; */
-/*   } */
-
-/*   .tag { */
-/*     @apply -mt-[2px]; */
-/*   } */
-
-/*   .card_4_col_wrapper { */
-/*     @apply flex-col flex-nowrap; */
-/*   } */
-
-/*   .card_4_col_wrap { */
-/*     @apply flex-col flex-nowrap mr-0; */
-/*   } */
-
-/*   .card_4_grid_inner.dotted-spaced { */
-/*     @apply flex flex-row-reverse items-center justify-start mx-0 py-8; */
-/*   } */
-
-/*   .card_image_4 { */
-/*     @apply block flex-none w-56; */
-/*   } */
-
-/*   .card_4_col_wrapper { */
-/*     @apply flex-col flex-nowrap; */
-/*   } */
-
-/*   .card_4_date_wrap { */
-/*     @apply block mb-0; */
-/*   } */
-
-/*   .card_4_date_wrap.blue {} */
-/* } */
-
-.display {
-  @apply font-serif font-medium text-5xl;
-  line-height: 1.1;
-}
-.display.card {
-  @apply text-4xl;
-}
-
-/* @media screen and (max-width: 479px) { */
-/*   .container { */
-/*     @apply px-5; */
-/*   } */
-
-/*   .card_featured_title_wrap { */
-/*     @apply pb-0; */
-/*   } */
-
-/*   .display { */
-/*     @apply text-3xl; */
-/*     line-height: 1.1; */
-/*   } */
-/* } */

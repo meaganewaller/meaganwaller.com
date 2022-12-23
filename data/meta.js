@@ -17,35 +17,27 @@ export const header = {
 export const nav = {
   main: [
     {
-      href: "/",
-      title: "Home",
+      href: "recentPosts",
+      title: "Recent Posts",
     },
     {
-      href: "/about/",
-      title: "About",
+      href: "categories",
+      title: "Categories",
     },
     {
-      href: "/projects/",
-      title: "Projects",
-    },
-    {
-      href: "/snippets/",
-      title: "Snippets",
-    },
-    {
-      href: "/guides/",
-      title: "Guides",
-    },
+      href: "newsletter",
+      title: "Newsletter"
+    }
   ],
   secondary: [
-    {
-      href: "/blog/",
-      title: "Blog",
-    },
-    {
-      href: "/contact/",
-      title: "Contact",
-    },
+    // {
+    //   href: "/blog/",
+    //   title: "Blog",
+    // },
+    // {
+    //   href: "/contact/",
+    //   title: "Contact",
+    // },
   ],
 };
 

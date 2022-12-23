@@ -23,22 +23,22 @@ export default function Post({ blocks, title, description, image, published, cat
   return (
     <MainLayout title={`${meta.title} - ${title} `} description={description} image={image} date={new Date(published).toISOString()} type="article" categories={categories} blogs={blogs}>
       <article className="mx-auto mb-16 flex min-h-screen w-full max-w-2xl flex-col items-start justify-center">
-        <div className="prose grid flex-1 grid-cols-1 gap-x-8 font-sans dark:prose-dark md:grid-cols-[1fr,minmax(auto,640px),1fr] md:[&>*]:col-start-2">
+        <div className="prose grid flex-1 grid-cols-1 gap-x-8 font-primary dark:prose-dark md:grid-cols-[1fr,minmax(auto,640px),1fr] md:[&>*]:col-start-2">
           <div>
-            <header className="w-full font-sans">
-              <h1 className="mt-6 mb-2 flex items-center box-decoration-clone bg-clip-text text-center font-sans text-[2.5rem] font-semibold motion-reduce:transition-none">
+            <header className="w-full font-primary">
+              <h1 className="mt-6 mb-2 flex items-center box-decoration-clone bg-clip-text text-center font-primary text-[2.5rem] font-semibold motion-reduce:transition-none">
                 {title}
               </h1>
               <div className="mt-2 flex w-full flex-col items-start justify-between md:flex-row md:items-center">
                 <div>
                   <div className="flex items-center">
                     <Image alt={meta.title} height={24} width={24} src={"/static/images/header.svg"} className="rounded-full" />
-                    <time className="ml-2 text-sm text-gray-700 dark:text-gray-300" date-time={parseISO(published)}>
+                    <time className="ml-2 text-sm" date-time={parseISO(published)}>
                       Meagan Waller / { format(parseISO(published), "MMMM dd, yyyy")}
                     </time>
                   </div>
                 </div>
-                  <p className="min-w-32 mt-2 text-sm text-gray-600 dark:text-gray-400 md:mt-0">
+                  <p className="min-w-32 mt-2 text-sm md:mt-0">
                   XXX words &middot; XX min read
                 </p>
               </div>
@@ -52,7 +52,7 @@ export default function Post({ blocks, title, description, image, published, cat
             {/* ))} */}
           </div>
         </div>
-        <div className="flex w-full justify-end py-4 font-mono text-gray-700 dark:text-gray-300">
+        <div className="flex w-full justify-end py-4 font-secondary">
           <Link href="#" rel="noopener noreferrer">Suggest a change</Link>
         </div>
       </article>

@@ -14,7 +14,7 @@ function NavItem({ href, text, target }) {
   const isActive = router.asPath.split("/")[1].trim() === href.split("/")[1].trim()
   return (
     <Link href={href} key={href} target={target} className={`${isActive ? "active text-yellow-green-500 dark:text-gray-200" : "text-yellow-green-600 dark:text-gray-400"} nav-border relative hidden rounded-lg p-1 transition-all duration-200 before:w-[calc(100%_-_1.5em)] after:w-[calc(100%_-_1.5em)] hover:bg-yellow-green-200 hover:text-yellow-green-800 motion-reduce:transition-none dark:hover:bg-white/10 dark:hover:text-gray-200 sm:px-3 sm:py-2 md:inline-block`}>
-      {text}
+      <span className="mb-2">{text}</span>
     </Link>
   )
 }

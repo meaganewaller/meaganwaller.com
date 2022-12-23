@@ -1,297 +1,154 @@
-const { fontFamily } = require('tailwindcss/defaultTheme')
-const plugin = require('tailwindcss/plugin')
-
 module.exports = {
-  content: ["./pages/**/*.tsx", "./layouts/**/*.tsx", "./components/**/*.tsx", "./lib/**/*.tsx"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./layouts/**/*.{tsx,ts}",
+    "./lib/**/*.{tsx,ts}",
+  ],
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   darkMode: 'class',
   theme: {
     screens: {
-      sm: '320px',
-      md: '640px',
-      lg: '1024px',
-      xl: '1500px',
+      xs: '320px',
+      "xs-max": { max: "320px" },
+      sm: '576px',
+      "sm-max": { max: "576px" },
+      md: "768px",
+      "md-max": { max: "768px" },
+      lg: "992px",
+      "lg-max": { max: "992px" },
+      xl: "1200px",
+      "xl-max": { max: "1200px" },
+      "2xl": "1400px",
+      "2xl-max": { max: "1320px" },
+    },
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      inherit: 'inherit',
+      primary: {
+        DEFAULT: 'hsl(var(--color-primary) / <alpha-value>)',
+        darker: 'hsl(var(--color-primary-darker) / <alpha-value>)',
+        dark: 'hsl(var(--color-primary-dark) / <alpha-value>)',
+        light: 'hsl(var(--color-primary-light) / <alpha-value>)',
+        lighter: 'hsl(var(--color-primary-lighter) / <alpha-value>)',
+      },
+      accent: {
+        DEFAULT: 'hsl(var(--color-accent) / <alpha-value>)',
+        darker: 'hsl(var(--color-accent-darker) / <alpha-value>)',
+        dark: 'hsl(var(--color-accent-dark) / <alpha-value>)',
+        light: 'hsl(var(--color-accent-light) / <alpha-value>)',
+        lighter: 'hsl(var(--color-accent-lighter) / <alpha-value>)',
+      },
+      black: 'hsl(var(--color-black) / <alpha-value>)',
+      white: 'hsl(var(--color-white) / <alpha-value>)',
+      warning: {
+        DEFAULT: 'hsl(var(--color-warning) / <alpha-value>)',
+        darker: 'hsl(var(--color-warning-darker) / <alpha-value>)',
+        dark: 'hsl(var(--color-warning-dark) / <alpha-value>)',
+        light: 'hsl(var(--color-warning-light) / <alpha-value>)',
+        lighter: 'hsl(var(--color-warning-lighter) / <alpha-value>)',
+      },
+      success: {
+        DEFAULT: 'hsl(var(--color-success) / <alpha-value>)',
+        darker: 'hsl(var(--color-success-darker) / <alpha-value>)',
+        dark: 'hsl(var(--color-success-dark) / <alpha-value>)',
+        light: 'hsl(var(--color-success-light) / <alpha-value>)',
+        lighter: 'hsl(var(--color-success-lighter) / <alpha-value>)',
+      },
+      error: {
+        DEFAULT: 'hsl(var(--color-error) / <alpha-value>)',
+        darker: 'hsl(var(--color-error-darker) / <alpha-value>)',
+        dark: 'hsl(var(--color-error-dark) / <alpha-value>)',
+        light: 'hsl(var(--color-error-light) / <alpha-value>)',
+        lighter: 'hsl(var(--color-error-lighter) / <alpha-value>)',
+      },
+      floor: {
+        DEFAULT: 'hsl(var(--color-floor) / <alpha-value>)',
+        darker: 'hsl(var(--color-floor-darker) / <alpha-value>)',
+        dark: 'hsl(var(--color-floor-dark) / <alpha-value>)',
+        light: 'hsl(var(--color-floor-light) / <alpha-value>)',
+        lighter: 'hsl(var(--color-floor-lighter) / <alpha-value>)',
+      },
+      contrast: {
+        lower: 'hsl(var(--color-contrast-lower) / <alpha-value>)',
+        low: 'hsl(var(--color-contrast-low) / <alpha-value>)',
+        medium: 'hsl(var(--color-contrast-medium) / <alpha-value>)',
+        high: 'hsl(var(--color-contrast-high) / <alpha-value>)',
+        higher: 'hsl(var(--color-contrast-higher) / <alpha-value>)',
+      },
+      secondary: {
+        DEFAULT: 'hsl(var(--color-secondary) / <alpha-value>)',
+        darker: 'hsl(var(--color-secondary-darker) / <alpha-value>)',
+        dark: 'hsl(var(--color-secondary-dark) / <alpha-value>)',
+        light: 'hsl(var(--color-secondary-light) / <alpha-value>)',
+        lighter: 'hsl(var(--color-secondary-lighter) / <alpha-value>)',
+      },
+      tertiary: {
+        DEFAULT: 'hsl(var(--color-tertiary) / <alpha-value>)',
+        darker: 'hsl(var(--color-tertiary-darker) / <alpha-value>)',
+        dark: 'hsl(var(--color-tertiary-dark) / <alpha-value>)',
+        light: 'hsl(var(--color-tertiary-light) / <alpha-value>)',
+        lighter: 'hsl(var(--color-tertiary-lighter) / <alpha-value>)',
+      },
+
     },
     extend: {
-      backgroundSize: {
-        'vert-dotted': '1px 8px',
-        'dotted': '8px 1px',
-      },
-      backgroundColor: {
-        primary: 'var(--color-bg-primary)',
-        secondary: 'var(--color-bg-secondary)',
-        tertiary: 'var(--color-bg-tertiary)',
-        orange: 'var(--color-orange-primary)',
-      },
-      textColor: {
-        primary: 'var(--color-text-primary)',
-        secondary: 'var(--color-text-secondary)',
-        orange: 'var(--color-orange-primary)',
-      },
-      borderColor: {
-        primary: 'var(--color-border-primary)',
-      },
-      order: {
-        initial: 'initial',
+      fontFamily: {
+        'primary': 'DM Sans',
+        'secondary': 'IBM Plex Mono',
+        'tertiary': 'Prata',
       },
       zIndex: {
-        '-10': '-10',
+        '1': '1',
+        '2': '2',
+        '3': '3',
+        '5': '5',
+        '15': '15',
       },
-      gridTemplateRows: {
-        'max-content': 'max-content',
+      borderRadius: {
+        'inherit': 'inherit',
       },
-      spacing: {
-        '5vw': '5vw',
-        '8vw': '8vw',
-        '10vw': '10vw',
+      lineHeight: {
+        'extra-tight': '1.1',
       },
-      maxWidth: {
-        '8xl': '96rem',
+      transitionTimingFunction: {
+        'out-back': 'cubic-bezier(0.34, 1.56, 0.64, 1)',
       },
-      maxHeight: {
-        '50vh': '50vh',
-        '75vh': '75vh',
+      boxShadow: {
+        'inner-xs': 'inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.075), 0 0.1px 0.3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.12)',
+        'inner-2xs': 'inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.075), 0 0.1px 0.3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.12), 0 0.1px 0.3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.12)',
+        'inner-sm': 'inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.075), 0 0.3px 0.4px rgba(0, 0, 0, 0.025), 0 0.9px 1.5px rgba(0, 0, 0, 0.05), 0 3.5px 6px rgba(0, 0, 0, 0.1)',
+        'inner-md': 'inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.075), 0 0.9px 1.5px rgba(0, 0, 0, 0.03), 0 3.1px 5.5px rgba(0, 0, 0, 0.08), 0 14px 25px rgba(0, 0, 0, 0.12)',
+        'inner-lg': 'inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.075), 0 1.2px 1.9px -1px rgba(0, 0, 0, 0.014), 0 3.3px 5.3px -1px rgba(0, 0, 0, 0.038), 0 8.5px 12.7px -1px rgba(0, 0, 0, 0.085), 0 30px 42px -1px rgba(0, 0, 0, 0.15)',
+        'inner-top-xs': 'inset 0 1px 0.5px hsla(0, 0%, 100%, 0.075), 0 0.1px 0.3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.12)',
+        'inner-top-sm': 'inset 0 1px 0.5px hsla(0, 0%, 100%, 0.075), 0 0.3px 0.4px rgba(0, 0, 0, 0.025), 0 0.9px 1.5px rgba(0, 0, 0, 0.05), 0 3.5px 6px rgba(0, 0, 0, 0.1)',
+        'inner-top-md': 'inset 0 1px 0.5px hsla(0, 0%, 100%, 0.075), 0 0.9px 1.5px rgba(0, 0, 0, 0.03), 0 3.1px 5.5px rgba(0, 0, 0, 0.08), 0 14px 25px rgba(0, 0, 0, 0.12)',
+        'inner-top-lg': 'inset 0 1px 0.5px hsla(0, 0%, 100%, 0.075), 0 1.2px 1.9px -1px rgba(0, 0, 0, 0.014), 0 3.3px 5.3px -1px rgba(0, 0, 0, 0.038), 0 8.5px 12.7px -1px rgba(0, 0, 0, 0.085), 0 30px 42px -1px rgba(0, 0, 0, 0.15)',
+
       },
-      rotate: {
-        '-135': '-135deg',
-        '135': '135deg',
+      opacity: {
+        '7': '.07',
+        '8': '.08',
+        '9': '.09',
+        '12': '.12',
+        '15': '.15',
+        '35': '.35',
+        '65': '.65',
+        '85': '.85',
+        '98': '.98',
       },
-      colors: {
-        transparent: 'transparent',
-        current: 'currentColor',
-        'slate': {  
-          DEFAULT: '#64748B',  
-          '50': '#CCD2DA',  
-          '100': '#C0C8D2',  
-          '200': '#A9B3C1',  
-          '300': '#919EB0',  
-          '400': '#79899F',  
-          '500': '#64748B',  
-          '600': '#4D596A',  
-          '700': '#353E4A',  
-          '800': '#1E2229',  
-          '900': '#060708'
-        },
-        'gray': {  
-          DEFAULT: '#6B7080',  
-          '50': '#CDCFD5',  
-          '100': '#C2C4CC',  
-          '200': '#ACAFBA',  
-          '300': '#969AA7',  
-          '400': '#7F8494',  
-          '500': '#6B7080',  
-          '600': '#515561',  
-          '700': '#383B43',  
-          '800': '#1E2024',  
-          '900': '#050506'
-        },
-        'zinc': {  
-          DEFAULT: '#3C3C3C',  
-          '50': '#D5D5D5',  
-          '100': '#CBCBCB',  
-          '200': '#B6B6B6',  
-          '300': '#A2A2A2',  
-          '400': '#8E8E8E',  
-          '500': '#797979',  
-          '600': '#656565',  
-          '700': '#505050',  
-          '800': '#3C3C3C',  
-          '900': '#202020'
-        },
-        'orange': {
-          DEFAULT: '#FF8133',
-          '50': '#FFF2EB',
-          '100': '#FFE6D6',
-          '200': '#FFCDAD',
-          '300': '#FFB385',
-          '400': '#FF9A5C',
-          '500': '#FF8133',
-          '600': '#FA6000',
-          '700': '#C24A00',
-          '800': '#8A3500',
-          '900': '#521F00'
-        },
-        'yellow': {
-          DEFAULT: '#F4D35E',
-          '50': '#FFFFFF',
-          '100': '#FEFDF7',
-          '200': '#FCF2D1',
-          '300': '#F9E8AA',
-          '400': '#F7DD84',
-          '500': '#F4D35E',
-          '600': '#F0C529',
-          '700': '#D3A80E',
-          '800': '#9F7E0B',
-          '900': '#6A5507'
-        },
-        'yellow-green': {
-          DEFAULT: '#CADE66',
-          '50': '#FEFFFD',
-          '100': '#F9FBEC',
-          '200': '#EDF4CB',
-          '300': '#E1ECA9',
-          '400': '#D6E588',
-          '500': '#CADE66',
-          '600': '#BAD438',
-          '700': '#97AE26',
-          '800': '#6F801C',
-          '900': '#475212'
-        },
-        'rose': {
-          DEFAULT: '#F88C99',
-          '50': '#FFFFFF',
-          '100': '#FFFFFF',
-          '200': '#FFFFFF',
-          '300': '#FDD9DD',
-          '400': '#FAB2BB',
-          '500': '#F88C99',
-          '600': '#F4576B',
-          '700': '#F1233C',
-          '800': '#CE0D25',
-          '900': '#990A1C'
-        },
-        'green': {
-          DEFAULT: '#90A955',
-          '50': '#E0E7CF',
-          '100': '#D7E0C1',
-          '200': '#C5D2A6',
-          '300': '#B3C58B',
-          '400': '#A2B770',
-          '500': '#90A955',
-          '600': '#708442',
-          '700': '#505E2F',
-          '800': '#31391D',
-          '900': '#11140A'
-        },
-        'sky': {
-          DEFAULT: '#56CBF9',
-          '50': '#FFFFFF',
-          '100': '#F4FBFF',
-          '200': '#CCEFFD',
-          '300': '#A5E3FC',
-          '400': '#7DD7FA',
-          '500': '#56CBF9',
-          '600': '#20BAF7',
-          '700': '#089DD7',
-          '800': '#0675A1',
-          '900': '#044E6B'
-        },
-        'blue': {
-          DEFAULT: '#391BCF',
-          '50': '#F7F5FE',
-          '100': '#E7E3FB',
-          '200': '#C9BFF7',
-          '300': '#AA9BF2',
-          '400': '#8B77ED',
-          '500': '#6C53E9',
-          '600': '#4D2FE4',
-          '700': '#391BCF',
-          '800': '#2B159D',
-          '900': '#1E0E6C'
-        },
-        'amber': {
-          DEFAULT: '#EEE0CB',
-          '50': '#FDFBF9',
-          '100': '#F8F2EA',
-          '200': '#EEE0CB',
-          '300': '#E0C7A1',
-          '400': '#D2AE76',
-          '500': '#C5944C',
-          '600': '#A37735',
-          '700': '#795828',
-          '800': '#4F391A',
-          '900': '#241B0C'
-        },
-        'purple': {
-          DEFAULT: '#A14EBF',
-          '50': '#FFFFFF',
-          '100': '#FFFFFF',
-          '200': '#F1E4F5',
-          '300': '#E1C6EA',
-          '400': '#D1A8E0',
-          '500': '#C18AD5',
-          '600': '#B16CCA',
-          '700': '#A14EBF',
-          '800': '#82399C',
-          '900': '#602A73'
-        },
+      borderWidth: {
+        '3': '3px',
       },
-      fontFamily: {
-        sans: ['DM Sans', ...fontFamily.sans],
-        serif: ["Prata", ...fontFamily.serif],
-        mono: ["IBM Plex Mono", ...fontFamily.mono],
+      outlineWidth: {
+        '3': '3px',
       },
-      typography: (theme) => ({
-        DEFAULT: {
-          css: {
-            color: theme("colors.gray.800"),
-            a: {
-              color: theme("colors.purple.600"),
-            },
-            code: {
-              color: theme("colors.pink.500"),
-              fontWeight: "normal",
-            },
-            "code::before": {
-              content: '""',
-            },
-            "code::after": {
-              content: '""',
-            },
-            "blockquote p:first-of-type::before": false,
-            "blockquote p:last-of-type::after": false,
-          },
-        },
-        dark: {
-          css: {
-            color: theme("colors.gray.300"),
-            a: {
-              color: theme("colors.indigo.400"),
-            },
-            blockquote: {
-              borderLeftColor: theme("colors.gray.700"),
-              color: theme("colors.gray.300"),
-            },
-            "h1,h2,h3,h4": {
-              color: theme("colors.gray.100"),
-            },
-            hr: { borderColor: theme("colors.gray.700") },
-            ol: {
-              li: {
-                "&:before": { color: theme("colors.gray.500") },
-              },
-            },
-            ul: {
-              li: {
-                "&:before": { backgroundColor: theme("colors.gray.500") },
-              },
-            },
-            strong: { color: theme("colors.gray.300") },
-            thead: {
-              color: theme("colors.gray.100"),
-            },
-            tbody: {
-              tr: {
-                borderBottomColor: theme("colors.gray.700"),
-              },
-            },
-          },
-        },
-      })
     },
-  },
-  variants: {
-    extend: {
-      opacity: ['group-focus'],
-    },
-    backgroundColor: ['responsive', 'hover', 'focus', 'active'],
-    typography: ['dark'],
   },
   plugins: [
-    plugin(function({ addVariant }) {
-      addVariant('not-last', '&:not(:last-child)')
-    }),
-    require('@tailwindcss/typography'), 
-    require('@tailwindcss/aspect-ratio'), 
-    require('@tailwindcss/line-clamp') 
+    require('@tailwindcss/aspect-ratio'),
   ],
 }

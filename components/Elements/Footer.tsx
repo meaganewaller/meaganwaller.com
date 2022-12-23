@@ -16,7 +16,7 @@ export default function Footer({ categories, blogs }:FooterProps) {
   return (
     <footer 
       aria-label="Site Footer" 
-      className="bg-yellow-green-100 mt-8 tracking-wide leading-6 align-baseline break-words border-solid border-x-0 border-y border-yellow-green-500 text-zinc-700 lg:border-b-0"
+      className="mt-8 tracking-wide leading-6 align-baseline break-words border-solid border-x-0 border-y lg:border-b-0"
       style={{ borderWidth: '0px', textRendering: 'optimizeLegibility'}}
     >
       <div className="max-w-screen-xl xl:max-w-[1400px] sm:px-5 md:px-[25px] hidden mx-auto md:block md:py-0 px-8 md:max-w-3xl lg:max-w-5xl">
@@ -50,9 +50,9 @@ export default function Footer({ categories, blogs }:FooterProps) {
             <form className="mt-5 relative z-4">
               <h4 className="text-2xl max-w-xs mx-auto font-bold text-emerald-800" style={{ lineHeight: '1.2'}}>Subscribe to the Newsletter</h4>
               <div className="max-w-lg block w-auto my-5 mx-auto relative">
-                <input className="m-0 py-4 px-5 pr-28 text-xs h-[60px] tracking-wider rounded-full w-full bg-yellow-green-200 border border-yellow-green-500 focus:border-emerald-900" />
+                <input className="m-0 py-4 px-5 pr-28 text-xs h-[60px] tracking-wider rounded-full w-full border focus:border-emerald-900" />
                 <div className="h-[60px] py-2 m-0 inline-block align-middle hover:cursor-pointer">
-                  <button className="absolute text-xs py-0 px-5 right-4 h-10 inline-block text-yellow-green-500 tracking-wider z-2 rounded-full border-2 border-solid border-yellow-green-500 bg-emerald-900 hover:bg-opacity-90">Submit</button>
+                  <button className="absolute text-xs py-0 px-5 right-4 h-10 inline-block tracking-wider z-2 rounded-full border-2 border-solid">Submit</button>
                 </div>
               </div>
               {/* success message */}
@@ -72,14 +72,14 @@ export default function Footer({ categories, blogs }:FooterProps) {
       {/* navigation */}
       <div className="mb-5 max-w-md pl-5 pr-5 text-center mx-auto">
         <ul className="m-0 p-0 b-0 align-baseline">
-          <li className="inline ml-2">
+          <li className="inline ml-2" key="terms">
             <Link href="#">Terms & Conditions</Link>
           </li>
-          <li className="inline ml-2">
+          <li className="inline ml-2" key="faq">
             <span className="inline-block mr-2.5 bg-black h-2.5 w-[2px] -mt-[1px] align-middle opacity-30" />
             <Link href="#">FAQ</Link>
           </li>
-          <li className="inline ml-2">
+          <li className="inline ml-2" key="privacy">
             <span className="inline-block mr-2.5 bg-black h-2.5 w-[2px] -mt-[1px] align-middle opacity-30" />
             <Link href="#">Privacy Policy</Link>
           </li>
