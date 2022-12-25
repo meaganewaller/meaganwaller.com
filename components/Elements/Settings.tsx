@@ -1,8 +1,7 @@
 import dynamic from "next/dynamic"
-import { social } from "@data/meta"
 import { Fragment, useState } from "react"
 import { Dialog, Transition } from "@headlessui/react"
-import { HiCog8Tooth, HiArrowTopRightOnSquare } from "react-icons/hi2"
+import { HiCog8Tooth } from "react-icons/hi2"
 const ThemeSwitch = dynamic(() => import("./ThemeSwitch"), {
  loading: () => <div className="h-[36px] w-[126px] animate-pulse rounded-lg bg-yellow-green-200 dark:bg-zinc-200/[15%]" />,
 })
@@ -38,9 +37,9 @@ export default function Settings(props) {
           </div>
          </div>
          <div className="mt-4 flex items-center">
-          <a target="_blank" rel="noreferrer" href={`https://github.com/${social.github.username}/${social.github.repo}`} className="full group flex items-start rounded-md px-2 py-3 text-sm text-black duration-200 motion-reduce:transition-none dark:text-white">
-           Source code <HiArrowTopRightOnSquare className="ml-2 h-4 w-4 opacity-50 duration-100 group-hover:opacity-90 motion-reduce:transition-none" />
-          </a>
+          {/* <a target="_blank" rel="noreferrer" href={`https://github.com/${social.github.username}/${social.github.repo}`} className="full group flex items-start rounded-md px-2 py-3 text-sm text-black duration-200 motion-reduce:transition-none dark:text-white"> */}
+          {/*  Source code <HiArrowTopRightOnSquare className="ml-2 h-4 w-4 opacity-50 duration-100 group-hover:opacity-90 motion-reduce:transition-none" /> */}
+          {/* </a> */}
           <button type="button" className="group my-2 ml-auto flex rounded-md border border-transparent bg-emerald-900 px-4 py-2 font-mono text-sm font-medium text-yellow-green-500 duration-200 hover:bg-emerald-800 motion-reduce:transition-none dark:bg-white/[10%] dark:text-white dark:hover:bg-white/[15%]" onClick={() => setIsOpen(false)}>
            Close{" "}
            <svg className="mt-[2px] ml-2 h-4 w-4 duration-200 group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

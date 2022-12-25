@@ -1,3 +1,6 @@
+import { FaCodepen, FaGithub } from "react-icons/fa";
+import { AiOutlineTwitter } from "react-icons/ai";
+
 export const meta = {
   title: "Meagan Waller",
   author: "Meagan Waller",
@@ -13,6 +16,35 @@ export const header = {
   subtitle: "Edit header.subtitle in config/meta.js",
   description: "Edit header.description in config/meta.js",
 };
+
+export const comingSoonNav = {
+  main: [
+    {
+      target: "_blank",
+      href: "/twitter/",
+      title: "Twitter",
+      icon: (props) => (
+        <AiOutlineTwitter width={32} height={32} {...props} />
+      ),
+    },
+    {
+      target: "_blank",
+      href: "/github/",
+      title: "Github",
+      icon: (props) => (
+        <FaGithub width={32} height={32} {...props} />
+      )
+    },
+    {
+      target: "_blank",
+      href: "/codepen/",
+      title: "Codepen",
+      icon: (props) => (
+        <FaCodepen width={32} height={32} {...props} />
+      )
+    },
+  ]
+}
 
 export const nav = {
   main: [
@@ -40,6 +72,7 @@ export const nav = {
     // },
   ],
 };
+
 
 export const social = {
   image: "/assets/banner.png",

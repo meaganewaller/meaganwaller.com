@@ -83,3 +83,498 @@
 .input-container input:focus {
   box-shadow: 0 0 0 2px var(hsl(--color-secondary-light));
 }
+
+/* --------------------------------
+
+File#: 2_coming-soon
+Title: Coming Soon
+Descr: Coming soon template
+Usage: codyhouse.co/license
+
+-------------------------------- */
+.coming-soon {
+  position: relative;
+  z-index: 1;
+}
+
+.coming-soon__figure {
+  position: relative;
+}
+.coming-soon__figure img {
+  top: 0;
+  right: 0;
+  width: 100%;
+  object-fit: cover;
+}
+
+.coming-soon__social-btn {
+  --btn-size: 32px;
+  --icon-size: 16px;
+  position: relative;
+  width: var(--btn-size);
+  height: var(--btn-size);
+  display: inline-flex;
+}
+.coming-soon__social-btn .icon {
+  position: relative;
+  z-index: 2;
+  display: block;
+  margin: auto;
+  font-size: var(--icon-size);
+  @apply text-primary dark:text-secondary-light;
+}
+.coming-soon__social-btn::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transform: scale(0.5);
+  transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.coming-soon__social-btn:hover::before {
+  @apply bg-contrast-lower dark:bg-primary-lighter;
+  transform: scale(1);
+}
+
+@media (min-width: 64rem) {
+  .coming-soon__figure {
+    height: auto;
+    -webkit-clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);  clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);t-animation: coming-soon-figure-anim 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+            animation: coming-soon-figure-anim 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+  }
+}
+@-webkit-keyframes coming-soon-figure-anim {
+  from {
+    -webkit-clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);  clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
+  }
+  to {
+    -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 10% 100%);  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 10% 100%);
+  }
+}
+@keyframes coming-soon-figure-anim {
+  from {
+    -webkit-clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);  clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
+  }
+  to {
+    -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 10% 100%);  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 10% 100%);
+  }
+}
+
+/* --------------------------------
+
+File#: 1_newsletter-input
+Title: Newsletter Input
+Descr: Animated newsletter input
+Usage: codyhouse.co/license
+
+-------------------------------- */
+:root {
+  --news-form-input-height: 48px;
+  --news-form-input-padding-x: 18px;
+  --news-form-input-radius: 50em;
+  --news-form-btn-margin: 4px;
+  --news-form-btn-padding-x: 16px;
+  --news-form-icon-size: 24px;
+}
+
+.news-form__wrapper {
+  position: relative;
+}
+
+.news-form__input {
+  @apply bg-contrast-higher/7 dark:bg-secondary-lighter/5;
+  padding: 0 var(--news-form-input-padding-x);
+  border-radius: var(--news-form-input-radius);
+  width: 100%;
+  height: var(--news-form-input-height);
+  transition: 0.2s;
+}
+.news-form__input:focus {
+  outline: none;
+  @apply bg-floor dark:bg-secondary-lighter;
+  box-shadow: 0 0.9px 1.5px rgba(0, 0, 0, 0.03), 0 3.1px 5.5px rgba(0, 0, 0, 0.08), 0 14px 25px rgba(0, 0, 0, 0.12), 0 0 0 2px hsl(var(--color-primary));
+}
+
+.news-form__btn {
+  display: inline-block;
+  overflow: hidden;
+  position: absolute;
+  top: var(--news-form-btn-margin);
+  right: var(--news-form-btn-margin);
+  height: calc(var(--news-form-input-height) - 2*var(--news-form-btn-margin));
+  padding: 0 var(--news-form-btn-padding-x);
+  @apply bg-contrast-higher/20;
+  @apply text-contrast-higher/90;
+  border-radius: calc(var(--news-form-input-radius) * 0.85);
+  @apply shadow;
+  @apply text-sm lg:text-base;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.news-form__btn > * {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: -webkit-transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.news-form__btn > *:last-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(100%);
+}
+
+.news-form__icon {
+  display: block;
+  width: var(--news-form-icon-size);
+  height: var(--news-form-icon-size);
+}
+.news-form__icon > * {
+  transform-origin: 50% 50%;
+}
+
+.news-form__icon-circle {
+  stroke-dashoffset: 160;
+  stroke-dasharray: 32;
+}
+
+.news-form__icon-check {
+  stroke-dashoffset: 30;
+  stroke-dasharray: 30;
+}
+
+.news-form__icon-excl-line {
+  stroke-dashoffset: 14;
+  stroke-dasharray: 14;
+}
+
+.news-form__icon-excl-dot {
+  -webkit-transform-origin: 12px 21.5px;transform-origin: 12px 21.5px;
+          transform: scale(0);
+}
+
+.news-form--enabled .news-form__btn {
+  @apply bg-primary;
+  @apply text-white;
+}
+.news-form--enabled .news-form__btn:hover {
+  @apply bg-primary-dark;
+}
+
+.news-form--loading .news-form__btn > *:first-child {
+  transform: translateY(-100%);
+}
+.news-form--loading .news-form__btn > *:last-child {
+  transform: translateY(0);
+}
+
+.news-form--circle-loop .news-form__icon-circle {
+  -webkit-animation: news-input-circle-anim-loader 1s cubic-bezier(0.645, 0.045, 0.355, 1);animation: news-input-circle-anim-loader 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.news-form--success .news-form__btn > *,
+.news-form--error .news-form__btn > * {
+  transition: none;
+}
+.news-form--success .news-form__btn > *:first-child,
+.news-form--error .news-form__btn > *:first-child {
+  transform: translateY(-100%);
+}
+.news-form--success .news-form__btn > *:last-child,
+.news-form--error .news-form__btn > *:last-child {
+  transform: translateY(0);
+}
+
+.news-form--success .news-form__icon-circle {
+  -webkit-animation: news-input-circle-anim-success 1s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;animation: news-input-circle-anim-success 1s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+}
+.news-form--success .news-form__icon-check {
+  -webkit-animation: news-input-check-anim-success 0.5s 0.8s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;animation: news-input-check-anim-success 0.5s 0.8s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+}
+
+.news-form--error .news-form__icon-circle {
+  -webkit-animation: news-input-circle-anim-error 0.8s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;animation: news-input-circle-anim-error 0.8s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+}
+.news-form--error .news-form__icon-excl-line {
+  -webkit-animation: news-input-line-anim-error 0.3s 0.6s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;animation: news-input-line-anim-error 0.3s 0.6s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+}
+.news-form--error .news-form__icon-excl-dot {
+  -webkit-animation: news-input-dot-anim-error 0.3s 0.9s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;animation: news-input-dot-anim-error 0.3s 0.9s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+}
+
+@-webkit-keyframes news-input-circle-anim-loader {
+  from {
+      transform: rotate(0);
+    stroke-dashoffset: 160;
+  }
+  to {
+    stroke-dashoffset: 96;
+      transform: rotate(-180deg);
+  }
+}
+
+@keyframes news-input-circle-anim-loader {
+  from {
+      transform: rotate(0);
+    stroke-dashoffset: 160;
+  }
+  to {
+    stroke-dashoffset: 96;
+      transform: rotate(-180deg);
+  }
+}
+@-webkit-keyframes news-input-circle-anim-success {
+  from {
+      transform: rotate(0);
+    stroke-dashoffset: 160;
+  }
+  to {
+      transform: rotate(-180deg);
+    stroke-dashoffset: 96;
+  }
+}
+@keyframes news-input-circle-anim-success {
+  from {
+      transform: rotate(0);
+    stroke-dashoffset: 160;
+  }
+  to {
+      transform: rotate(-180deg);
+    stroke-dashoffset: 96;
+  }
+}
+@-webkit-keyframes news-input-circle-anim-error {
+  from {
+      transform: rotate(0);
+    stroke-dashoffset: 160;
+  }
+  to {
+      transform: rotate(-90deg);
+    stroke-dashoffset: 96;
+  }
+}
+@keyframes news-input-circle-anim-error {
+  from {
+      transform: rotate(0);
+    stroke-dashoffset: 160;
+  }
+  to {
+      transform: rotate(-90deg);
+    stroke-dashoffset: 96;
+  }
+}
+@-webkit-keyframes news-input-check-anim-success {
+  from {
+    stroke-dashoffset: 30;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes news-input-check-anim-success {
+  from {
+    stroke-dashoffset: 30;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@-webkit-keyframes news-input-line-anim-error {
+  from {
+    stroke-dashoffset: 14;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes news-input-line-anim-error {
+  from {
+    stroke-dashoffset: 14;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@-webkit-keyframes news-input-dot-anim-error {
+  from {
+    -webkit-transform: translateY(-4px) scale(0);  transform: translateY(-4px) scale(0);
+  }
+  to {
+    -webkit-transform: translateY(0) scale(1);  transform: translateY(0) scale(1);
+  }
+}
+@keyframes news-input-dot-anim-error {
+  from {
+    -webkit-transform: translateY(-4px) scale(0);  transform: translateY(-4px) scale(0);
+  }
+  to {
+    -webkit-transform: translateY(0) scale(1);  transform: translateY(0) scale(1);
+  }
+}
+.news-form__msg {
+  position: absolute;
+  @apply z-5;
+  top: calc(14px + var(--news-form-input-height));
+  left: 5%;
+  width: 90%;
+  border-top-left-radius: 0;
+  -webkit-transform: translateY(-10px);transform: translateY(-10px);
+  transition: opacity 0.3s, visibility 0s 0.3s, -webkit-transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: opacity 0.3s, visibility 0s 0.3s, transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: opacity 0.3s, visibility 0s 0.3s, transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.news-form__msg::before {
+  content: "";
+  width: 12px;
+  height: 10px;
+  background-color: inherit;
+  position: absolute;
+  left: 0;
+  bottom: calc(100% - 1px);
+  -webkit-clip-path: polygon(0% 0%, 100% 100%, 0% 100%);clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
+}
+
+.news-form__msg--success {
+  @apply bg-success-lighter text-black;
+}
+
+.news-form__msg--error {
+  @apply bg-error;
+  @apply text-white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.news-form--success .news-form__msg--success,
+.news-form--error .news-form__msg--error {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0px);
+  transition: opacity 0.3s 1s, -webkit-transform 0.3s 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: opacity 0.3s 1s, transform 0.3s 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: opacity 0.3s 1s, transform 0.3s 1s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.3s 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/* --------------------------------
+
+File#: 1_reveal-effects
+Title: Reveal Effects
+Descr: A collection of reveal effects targeting specific elements as they enter the viewport
+Usage: codyhouse.co/license
+
+-------------------------------- */
+:root {
+  --reveal-fx-duration: 0.6s;
+  --reveal-fx-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.reveal-fx {
+  opacity: 0;
+  transition: opacity, -webkit-transform var(--reveal-fx-timing-function);
+  transition: opacity, transform var(--reveal-fx-timing-function);
+  transition: opacity, transform var(--reveal-fx-timing-function), -webkit-transform var(--reveal-fx-timing-function);
+  transition-duration: var(--reveal-fx-duration);
+}
+.reveal-fx::before {
+  display: none;
+  content: "reveal-fx";
+}
+.reveal-fx--translate, .reveal-fx--translate-up {
+  -webkit-transform: translateY(50px);transform: translateY(50px);
+}
+.reveal-fx--translate-right {
+  -webkit-transform: translateX(-50px);transform: translateX(-50px);
+}
+.reveal-fx--translate-left {
+  -webkit-transform: translateX(50px);transform: translateX(50px);
+}
+.reveal-fx--translate-down {
+  -webkit-transform: translateY(-50px);transform: translateY(-50px);
+}
+.reveal-fx--scale {
+  -webkit-transform: scale(0.8);transform: scale(0.8);
+}
+.reveal-fx--scale-up {
+  -webkit-transform: translateY(50px) scale(0.8);transform: translateY(50px) scale(0.8);
+}
+.reveal-fx--scale-right {
+  -webkit-transform: translateX(-50px) scale(0.8);transform: translateX(-50px) scale(0.8);
+}
+.reveal-fx--scale-left {
+  -webkit-transform: translateX(50px) scale(0.8);transform: translateX(50px) scale(0.8);
+}
+.reveal-fx--scale-down {
+  -webkit-transform: translateY(-50px) scale(0.8);transform: translateY(-50px) scale(0.8);
+}
+.reveal-fx--rotate, .reveal-fx--rotate-down, .reveal-fx--rotate-right, .reveal-fx--rotate-left, .reveal-fx--rotate-up {
+  perspective: 1000px;
+}
+.reveal-fx--rotate > *, .reveal-fx--rotate-down > *, .reveal-fx--rotate-right > *, .reveal-fx--rotate-left > *, .reveal-fx--rotate-up > * {
+  transition: -webkit-transform var(--reveal-fx-duration) var(--reveal-fx-timing-function);
+  transition: transform var(--reveal-fx-duration) var(--reveal-fx-timing-function);
+  transition: transform var(--reveal-fx-duration) var(--reveal-fx-timing-function), -webkit-transform var(--reveal-fx-duration) var(--reveal-fx-timing-function);
+  backface-visibility: hidden;
+}
+.reveal-fx--rotate > *, .reveal-fx--rotate-down > * {
+  transform-origin: top;
+  transform: rotateX(-45deg);
+}
+.reveal-fx--rotate-right > * {
+  transform-origin: left center;
+  transform: rotateY(45deg);
+}
+.reveal-fx--rotate-left > * {
+  transform-origin: right center;
+  transform: rotateY(-45deg);
+}
+.reveal-fx--rotate-up > * {
+  transform-origin: bottom;
+  transform: rotateX(45deg);
+}
+.reveal-fx--text-mask {
+  overflow: hidden;
+}
+.reveal-fx--text-mask > * {
+  display: inline-block;
+  transform: translateY(100%);
+  transition: transform var(--reveal-fx-duration) var(--reveal-fx-timing-function);
+  will-change: transform;
+}
+[class*=reveal-fx--translate], [class*=reveal-fx--scale] {
+  will-change: opacity, transform;
+}
+.reveal-fx--text-mask > *, [class*=reveal-fx--rotate] > * {
+  will-change: transform;
+}
+.reveal-fx--clip-x > *,
+.reveal-fx--clip-y > * {
+  transition: opacity, clip-path cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition-duration: var(--reveal-fx-duration);
+}
+.reveal-fx--clip-x > * {
+  -webkit-clip-path: polygon(10% 0%, 90% 0%, 90% 100%, 10% 100%);clip-path: polygon(10% 0%, 90% 0%, 90% 100%, 10% 100%);
+}
+.reveal-fx--clip-y > * {
+  -webkit-clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%);clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%);
+}
+.reveal-fx--is-visible {
+  opacity: 1;
+}
+.reveal-fx--is-visible[class*=reveal-fx--translate], .reveal-fx--is-visible[class*=reveal-fx--scale], .reveal-fx--is-visible[class*=reveal-fx--rotate] > *, .reveal-fx--is-visible.reveal-fx--text-mask > * {
+  -webkit-transform: translate(0);transform: translate(0);
+}
+.reveal-fx--is-visible.reveal-fx--clip-x > *, .reveal-fx--is-visible.reveal-fx--clip-y > * {
+  opacity: 1;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
