@@ -101,6 +101,9 @@ module.exports = {
         'secondary': 'IBM Plex Mono',
         'tertiary': 'Prata',
       },
+      backgroundImage: {
+        'comingSoon': "url('../public/static/images/seeyasoon.svg')",
+      },
       zIndex: {
         '1': '1',
         '2': '2',

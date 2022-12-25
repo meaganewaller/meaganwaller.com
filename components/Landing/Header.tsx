@@ -1,8 +1,8 @@
 import { nav } from "@data/meta"
-import Logo from "@components/Icons/Logo"
+import { Logo } from "@components/Icons/Logo"
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from 'react'
-import SmallLogo from "@components/Icons/SmallLogo"
+import { SmallLogo } from "@components/Icons/SmallLogo"
 import * as Scroll from 'react-scroll'
 import { Link } from 'react-scroll'
 

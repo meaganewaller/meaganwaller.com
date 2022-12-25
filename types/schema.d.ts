@@ -219,3 +219,16 @@ export interface BlogPostProperties {
     ]
   }
 }
+
+export type ConvertKitSubscription = {
+  subscriber: ConvertKitSubscriber
+}
+
+export type ConvertKitSubscriber = {
+  id: number
+  first_name: string
+  email_address: string
+  state: 'active' | 'inactive'
+  created_at: string
+  fields: Record<string, string | null>
+}

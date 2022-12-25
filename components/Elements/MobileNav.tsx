@@ -1,7 +1,7 @@
 import Link from "next/link"
 import useDelayedRender from "use-delayed-render"
 import { useState } from "react"
-import { nav } from "@data/meta"
+import { comingSoonNav } from "@data/meta"
 import { HiBars3BottomLeft, HiXMark } from "react-icons/hi2"
 import clsx from "clsx"
 
@@ -12,7 +12,7 @@ export default function MobileNav() {
     exitDelay: 500
   })
 
-  const menuItems = [...nav.main, ...nav.secondary]
+  const menuItems = [...comingSoonNav.main]
 
   return (
     <>

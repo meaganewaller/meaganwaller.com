@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { HiEnvelopeOpen } from "react-icons/hi2";
-import Logo from "@components/Icons/Logo"
+import { Logo } from "@components/Icons/Logo"
 import { BlogCategory, BlogPost } from "@localTypes/schema";
 import { social } from "@data/meta";
 import FooterCategories from "./FooterCategories";
