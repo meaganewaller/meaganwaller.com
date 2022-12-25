@@ -57,7 +57,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   return res
     .status(201)
-    .json({ error: '', message: 'Thank you for subscribing! Check your inbox for a confirmation & a thank you from me! 💙'})
+    .json({ error: '', message: 'Thank you for subscribing! Check your inbox for a confirmation' })
 }
 
 export default withSentry(handler)
