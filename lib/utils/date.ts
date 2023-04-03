@@ -1,11 +1,8 @@
-const formatDate = (date: Date): string => {
-  const options: Intl.DateTimeFormatOptions = {
-    year: 'numeric',
-    month: 'short',
+export function formatDate(dateString: string) {
+  return new Date(dateString).toLocaleString('en-US', {
     day: 'numeric',
-  };
-
-  return new Intl.DateTimeFormat('en', options).format(date);
-};
-
-export default formatDate;
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  });
+}

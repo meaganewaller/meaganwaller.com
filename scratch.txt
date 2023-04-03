@@ -1,0 +1,33 @@
+      <Window active={true} title="delivered straight to your inbox" x={size.width / 2} y={size.height / 12} width="600px">
+        <div className="bg-white flex m-[3px] mt-0 min-h-[50vh] border-t border-solid border-primary-darker">
+          <div className="bg-primary-light border border-solid border-primary p-[3px] flex flex-col items-center justify-between">
+            <Aol width="128px" height="128px" viewBox="0 0 210 184" />
+            <div className="border-none mb-3 p-[3px] flex flex-col items-center justify-between">
+              <Aim width="32px" height="32px" viewBox="0 0 645 803" />
+              <p className="font-semibold tracking-wide">version 1.0</p>
+            </div>
+          </div>
+          <div className="flex flex-col justify-between items-center w-full">
+            <div className="pt-20 flex flex-col">
+              <p className="font-semibold tracking-wide">Screen Name:</p>
+              <select>
+                <option selected>Shopgirl</option>
+                <option>New User</option>
+              </select>
+            </div>
+            <div className="pt-20 flex flex-col">
+              <p className="font-semibold tracking-wide">Select Location:</p>
+              <select>
+                <option>Home</option>
+                <option>ISP/LAN Connection</option>
+              </select>
+            </div>
+            <div className="py-6 flex justify-between w-[90%] text-sm">
+              <button className="bg-primary-light text-white border border-solid border-primary shadow-primary-darker shadow-sm mr-2 py-1 px-5 rounded-3xl uppercase cursor-pointer text-xs">Setup</button>
+              <button className="bg-primary-light text-white border border-solid border-primary shadow-primary-darker shadow-sm mr-2 py-1 px-5 rounded-3xl uppercase cursor-pointer text-xs">Help</button>
+              <button className="bg-primary-light text-white border border-solid border-primary shadow-primary-darker shadow-sm mr-2 py-1 px-5 rounded-3xl uppercase cursor-pointer text-xs">Sign on</button>
+            </div>
+          </div>
+        </div>
+      </Window>
+

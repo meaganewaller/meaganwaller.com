@@ -1,5 +1,5 @@
 import { meta as head_meta, social } from "@data/meta"
-import { Nav } from "@components/Elements/Navbar"
+//import { Nav } from "@components/Elements/Navbar"
 import Footer from "@components/Elements/Footer"
 import { useRouter } from "next/router"
 import Head from "next/head"

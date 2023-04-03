@@ -1,7 +1,16 @@
-export default function PageTitle({ children }) {
+import clsx from 'clsx';
+
+import type { PropsWithChildren } from 'react';
+
+export const PageTitle = ({ children, className }: PropsWithChildren<{ className?: string }>) => {
   return (
-    <h1 className="text-3xl font-medium leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
+    <h1
+      className={clsx(
+        className,
+        'text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl',
+      )}
+    >
       {children}
     </h1>
-  )
-}
+  );
+};

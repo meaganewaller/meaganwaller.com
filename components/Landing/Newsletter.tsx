@@ -16,16 +16,16 @@ function TextInput({ label, htmlType }:InputProps) {
 
   return (
     <div className="input-container">
-      <input 
-        type="text" 
-        value={value} 
+      <input
+        type="text"
+        value={value}
         onChange={handleChange}
-        className="form-control w-full h-full rounded-full" 
+        className="form-control w-full h-full rounded-full"
         aria-label={label}
       />
-      <label 
-        className={clsx(value && 'filled')} 
-        aria-label={label} 
+      <label
+        className={clsx(value && 'filled')}
+        aria-label={label}
         htmlFor={htmlType}
       >
         {label}
@@ -38,8 +38,8 @@ export default function Newsletter() {
   return (
     <section className="newsletter mt-52 py-12 lg:py-20 text-center" id="newsletter">
       <div className="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-xl">
-        <div className="text-component mb-5 lg:mb-8 font-secondary dark:text-secondary-light">
-          <h2 className="text-secondary font-secondary">{`A newsletter you'll`}<span className="italic">actually</span> open</h2>
+        <div className="text-component mb-5 lg:mb-8 font-mono dark:text-secondary-light">
+          <h2 className="text-secondary font-mono">{`A newsletter you'll`}<span className="italic">actually</span> open</h2>
           <p>Get the monthly recap with the latest updates, posts, and resources.</p>
         </div>
 
@@ -53,7 +53,7 @@ export default function Newsletter() {
           </div>
 
           <div className="col-span-12">
-            <button className="btn btn--primary w-full h-full font-secondary uppercase tracking-wide">Subscribe</button>
+            <button className="btn btn--primary w-full h-full font-mono uppercase tracking-wide">Subscribe</button>
           </div>
         </form>
 

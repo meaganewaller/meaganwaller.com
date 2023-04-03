@@ -1,3 +1,17 @@
+select {
+  @apply border border-solid border-black appearance-none w-[220px] mt-2 bg-white mr-[19px]
+}
+
+select:not([multiple]) {
+  @apply appearance-none bg-no-repeat pr-2;
+  background-position: right 50%;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAMCAYAAABSgIzaAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDZFNDEwNjlGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDZFNDEwNkFGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0NkU0MTA2N0Y3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0NkU0MTA2OEY3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PuGsgwQAAAA5SURBVHjaYvz//z8DOYCJgUxAf42MQIzTk0D/M+KzkRGPoQSdykiKJrBGpOhgJFYTWNEIiEeAAAMAzNENEOH+do8AAAAASUVORK5CYII=);
+}
+
+option:selection {
+  background: yellow;
+}
+
 .dotted-spaced {
   background-image: linear-gradient(to right, currentColor 10%, rgba(255, 255, 255, 0) 0%);
   background-position: bottom;
@@ -7,31 +21,31 @@
 
 @media only screen and (min-width: 768px) {
   .dotted-right {
-    background-image:  
-      linear-gradient(currentColor 10%, rgba(255, 255, 255, 0) 0%); 
-    background-position: top right; 
-    background-size: 1px 8px; 
+    background-image:
+      linear-gradient(currentColor 10%, rgba(255, 255, 255, 0) 0%);
+    background-position: top right;
+    background-size: 1px 8px;
     background-repeat: repeat-y;
   }
 
-  .dotted-left { 
-    background-image:  
-      linear-gradient(currentColor 10%, rgba(255, 255, 255, 0) 0%); 
-    background-position: top left; 
-    background-size: 1px 8px; 
-    background-repeat: repeat-y; 
+  .dotted-left {
+    background-image:
+      linear-gradient(currentColor 10%, rgba(255, 255, 255, 0) 0%);
+    background-position: top left;
+    background-size: 1px 8px;
+    background-repeat: repeat-y;
   }
 }
 
 .squiggle.active {
-  @apply bg-no-repeat bg-bottom; 
+  @apply bg-no-repeat bg-bottom;
   background-image: url( '/static/images/squiggle.svg' );
   background-position: bottom;
   background-size: 90%;
 }
 
 .squiggle:not(.active):hover {
-  @apply bg-no-repeat bg-bottom; 
+  @apply bg-no-repeat bg-bottom;
   background-image: url( '/static/images/squiggle.svg' );
   background-size: 90%;
 }
@@ -49,6 +63,30 @@
 .newsletter {
   position: relative;
   z-index: 1;
+}
+
+.blog-category-nav {
+  @apply mx-auto align-middle;
+}
+
+.blog-category-nav:hover > .blog-category-nav_item {
+  @apply scale-90;
+  box-shadow: 0 5px 10px -5px hsl(--var(color-primary-dark, 0.8));
+}
+
+.blog-category-nav > .blog-category-nav_item:hover {
+  @apply border-primary-lighter bg-secondary-darker;
+  transform: scale(1.1);
+  box-shadow: 0 15px 30px -15px hsl(--var(color-primary-dark, 0.8));
+}
+
+.blog-category-nav_item {
+  @apply bg-primary-dark dark:bg-primary-light text-center border-2 border-solid border-secondary align-middle;
+  box-shadow: 0 10px 20px -10px hsl(--var(color-primary,0.85));
+  transition: all .3s ease;
+  cursor: pointer;
+  overflow: hidden;
+  flex: 1;
 }
 
 .input-container {
@@ -74,7 +112,7 @@
 }
 
 .input-container input {
-  @apply h-16 rounded-full border-none pt-6 pr-4 pb-1 pl-4 outline-none shadow-none; 
+  @apply h-16 rounded-full border-none pt-6 pr-4 pb-1 pl-4 outline-none shadow-none;
   font-size: 16px;
   line-height: 1;
   transition: 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
@@ -83,6 +121,15 @@
 .input-container input:focus {
   box-shadow: 0 0 0 2px var(hsl(--color-secondary-light));
 }
+
+.category-nav:hover > .category-nav_item {
+  transform: scale(0.9);
+}
+
+.category-nav > .category-nav_item:hover {
+  transform: scale(1.07);
+}
+
 
 /* --------------------------------
 

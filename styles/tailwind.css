@@ -1,5 +1,32 @@
 @tailwind base;
 @tailwind components;
+@import "@fontsource/ibm-plex-mono";
+@import "@fontsource/dm-sans";
+@import "@fontsource/prata";
+
+@font-face {
+  font-family: "basiic";
+  src: url('/static/fonts/basiic.ttf');
+}
+
+:root {
+    --webring-devblog-bg: url('https://i.imgur.com/3gRnS0T.gif');
+    --webring-devblog-border: 3px dashed;
+    --webring-devblog-color: hsl(var(--color-white));
+    --webring-devblog-linkcolor: hsl(var(--color-primary-darker));
+    --webring-devblog-title: white;
+    --webring-devblog-fontfamily: 'basiic';
+    --webring-devblog-titlesize: 1.25rem;
+    --webring-devblog-borderradius: 10px;
+    --webring-devblog-bgcolor: hsl(var(--color-secondary));
+    --webring-devblog-width: 350px;
+    --webring-devblog-height: 92px;
+    --webring-devblog-textsize: .875rem;
+    --webring-devblog-textfamily: 'basiic';
+    --webring-devblog-padding: 2px;
+    --webring-devblog-h1margin: 2px;
+    --webring-devblog-textmargin: 0;
+}
 
 :root, [data-theme="default"] {
   /* main */

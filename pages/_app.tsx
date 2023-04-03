@@ -1,27 +1,43 @@
-import type { AppProps } from 'next/app'
-import { Router } from 'next/router'
-import { ThemeProvider } from 'next-themes'
+import "@fontsource/prata";
+import "@fontsource/dm-sans";
+import "@fontsource/ibm-plex-mono";
+//import 'focus-visible';
+import { ThemeProvider } from "next-themes";
+import React, { useEffect, useRef } from 'react';
+import Script from "next/script";
 
-import nProgress from "nprogress"
+import '../styles/tailwind.css';
+import '../styles/index.css';
+import '../styles/app.css';
+import '../styles/prism.css';
 
-import '../styles/input.css'
-import '../styles/app.css'
+import type { AppProps } from "next/app";
+import ScrollIndicator from "@components/ScrollIndicator";
 
-Router.events.on("routeChangeStart", nProgress.start)
-Router.events.on("routeChangeError", nProgress.done)
-Router.events.on("routeChangeComplete", nProgress.done)
+function usePrevious(value: string) {
+  let ref = useRef<string>();
 
-const MyApp = ({ Component, pageProps, router }: AppProps) => { 
-  process.env.NODE_ENV === "production" ? null : null
+  useEffect(() => {
+    ref.current = value;
+  }, [value]);
+
+  return ref.current;
+}
+
+export default function App({ Component, pageProps, router }: AppProps) {
+  let previousPathname = usePrevious(router.pathname);
+
   return (
     <>
       <ThemeProvider attribute="class">
-        <main className="font-primary">
-          <Component {...pageProps} key={router.route} />
-        </main>
+        <div className={`font-sans subpixel-antialiased`}>
+          <div className="relative">
+            <main>
+              <Component previousPathname={previousPathname} {...pageProps} />
+            </main>
+          </div>
+        </div>
       </ThemeProvider>
     </>
-  )
-}
-
-export default MyApp
+  );
+};

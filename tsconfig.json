@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "baseUrl": ".",
+    "target": "ES6",
     "lib": [
       "dom",
       "dom.iterable",
@@ -17,47 +18,42 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "baseUrl": ".",
     "paths": {
       "@components/*": [
-        "components/*"
+        "./components/*"
       ],
       "@config/*": [
-        "config/*"
+        "./config/*"
       ],
       "@data/*": [
-        "data/*"
+        "./data/*"
       ],
       "@hooks/*": [
-        "hooks/*"
+        "./hooks/*"
       ],
       "@layouts/*": [
-        "layouts/*"
+        "./layouts/*"
       ],
       "@lib/*": [
-        "lib/*"
+        "./lib/*"
+      ],
+      "@services/*": [
+        "./services/*"
       ],
       "@localTypes/*": [
-        "types/*"
+        "./types/*"
       ]
     },
     "typeRoots": [
       "./node_modules/@types",
       "./types"
     ],
-    "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "incremental": true
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx",
-    "pages/_error.js",
-    ".next/types/**/*.ts"
+    "**/*.tsx"
   ],
   "exclude": [
     "node_modules"

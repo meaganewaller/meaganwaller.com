@@ -1,7 +1,25 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "github": { "silent": true },
+  "headers": [
+    {
+      "source": "/fonts/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "max-age=31536000, stale-while-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "max-age=31536000, stale-while-revalidate"
+        }
+      ]
+    }
+  ],
   "cleanUrls": true,
-  "trailingSlash": false,
-  "redirects": [
-  ]
+  "trailingSlash": false
 }

@@ -11,7 +11,7 @@ type Props = {
   formId: string
 }
 
-const SubscribeForm = ( { formId }: Props) => {
+const SubscribeForm = ({ formId }: Props) => {
   const [form, setForm] = useState<FormState>({ state: Form.Initial })
   const { data } = useSWR<Subscribers>(
     `/api/convertkit/subscribers/${formId}`,
@@ -49,10 +49,10 @@ const SubscribeForm = ( { formId }: Props) => {
   }
 
   return (
-    <>
-      { form.state !== Form.Success && (
+    <div className="flex flex-col font-extra">
+      {form.state !== Form.Success && (
         <>
-          <h3 className="font-medium text-3xl mb-3.5 lg:text-4xl text-center text-primary-darker dark:text-secondary-light">
+          <h3 className="font-medium text-3xl mb-3.5 lg:text-4xl text-center text-primary-darker dark:text-secondary-light font-mono">
             {`A newsletter you'll`}{' '}
             <em>actually</em> open
           </h3>
@@ -62,11 +62,11 @@ const SubscribeForm = ( { formId }: Props) => {
         </>
       )}
 
-      { form.state !== Form.Success && form.state !== Form.Error && (
+      {form.state !== Form.Success && form.state !== Form.Error && (
         <>
-          <form 
+          <form
             name="subscribe-form"
-            className="flex flex-col items-center w-full space-y-3 mb-8 mt-8" 
+            className="flex flex-col items-center w-full space-y-3 mb-8 mt-8"
             onSubmit={subscribe}
             target="_blank"
           >
@@ -78,7 +78,7 @@ const SubscribeForm = ( { formId }: Props) => {
                 name="first_name"
                 placeholder="First name"
                 className="transition-colors w-full bg-white px-5 py-3 rounded-full border-[3px] border-contrast-higher/8 focus:outline-none focus:border-secondary-darker text-black"
-                />
+              />
               <input
                 disabled={form.state === Form.Loading}
                 type="email"
@@ -86,7 +86,7 @@ const SubscribeForm = ( { formId }: Props) => {
                 className="transition-colors w-full bg-white px-5 py-3 rounded-full border-[3px] border-contrast-higher/8 focus:outline-none focus:border-secondary-darker text-black"
                 name="email"
                 aria-label="Email"
-                />
+              />
             </div>
             <button
               type="submit"
@@ -97,13 +97,13 @@ const SubscribeForm = ( { formId }: Props) => {
               Subscribe
             </button>
             <small>No spam - unsubscribe at anytime!</small>
-            { data?.count > 99 && (
+            {data?.count > 99 && (
               <p className="text-lg text-primary-darker dark:text-primary-lighter">
                 Join {data?.count}+ subscribers
               </p>
             )}
           </form>
-          </>
+        </>
       )}
       {form.state === Form.Success && (
         <p>{form.message}</p>
@@ -113,10 +113,10 @@ const SubscribeForm = ( { formId }: Props) => {
           <Link href="https://twitter.com/meaganewaller" target="_blank">
             Twitter
           </Link>{' '}
-          about this. 
+          about this.
         </p>
       )}
-    </>
+    </div>
   )
 }
 

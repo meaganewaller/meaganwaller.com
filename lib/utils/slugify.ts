@@ -1,5 +1,5 @@
-import slugy from 'slugify';
+import slugify from 'slugify';
 
-export function slugify(text: string[]) {
-  return slugy(text.join(''), { lower: true });
+export const slugifyIt = (str: string) => {
+  return slugify(str.toLowerCase(), '_');
 };
