@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import Draggable from "react-draggable";
-import { useSendWindowToTop } from "lib/hooks/useSendWindowToTop";
 import clsx from "clsx";
 
 interface Props {
@@ -11,10 +10,11 @@ interface Props {
   width?: string;
   height?: string;
   zIndex?: string;
+  classList?: string;
   children: React.ReactNode;
 }
 
-export const DraggableWindow = ({ active, title, x, y, width, height, zIndex, children }: Props) => {
+export const DraggableWindow = ({ active, title, x, y, width, height, zIndex, classList, children }: Props) => {
   const shareRef = useRef<HTMLInputElement>();
   const randomId = Math.random().toString(36).replace(/\.|\d/g, "");
   const [activeWindow, setActiveWindow] = useState(active);
@@ -44,6 +44,7 @@ export const DraggableWindow = ({ active, title, x, y, width, height, zIndex, ch
         className={clsx(
           "absolute grid grid-rows-[21px_auto_4px] grid-cols-[4px_auto_4px] border border-solid border-[#000] bg-[#c0c0c0] shadow-[inset_1px_1px_0_#fff_inset_-1px_-1px_0_#9c9c9c]",
           { window_inactive: !active },
+          { [classList]: classList }
         )}
         style={{
           top: y,

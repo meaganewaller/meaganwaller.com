@@ -534,7 +534,7 @@
   }
 
   .text-component :where(figcaption) {
-    @apply text-contrast-low text-sm lg:text-base;
+    /* @apply text-contrast-low text-sm lg:text-base; */
     text-align: center;
     margin-top: 0.5em;
   }
@@ -544,7 +544,7 @@
   }
 
   .text-component :where(hr) {
-    @apply bg-contrast-lower;
+    /* @apply bg-contrast-lower; */
     height: 1px;
     margin-top: calc(1.875em * var(--text-space-y-multiplier, 1));
     margin-bottom: calc(1.875em * var(--text-space-y-multiplier, 1));

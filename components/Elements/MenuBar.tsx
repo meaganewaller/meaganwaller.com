@@ -17,12 +17,12 @@ export default function MenuBar() {
             Site
           </NextLink>
           <ul>
-            <li>
-              <NextLink href="/start">Start Here!</NextLink>
-            </li>
-            <li>
-              <NextLink href="/history">History</NextLink>
-            </li>
+            {/* <li> */}
+            {/*   <NextLink href="/start">Start Here!</NextLink> */}
+            {/* </li> */}
+            {/* <li> */}
+            {/*   <NextLink href="/history">History</NextLink> */}
+            {/* </li> */}
             <li>
               <NextLink href="/subscribe">Join the Newsletter</NextLink>
             </li>
@@ -34,9 +34,9 @@ export default function MenuBar() {
         <li>
           <NextLink href="/about">Meagan</NextLink>
           <ul>
-            <li>
-              <NextLink href="/about">About</NextLink>
-            </li>
+            {/* <li> */}
+            {/*   <NextLink href="/about">About</NextLink> */}
+            {/* </li> */}
             <li>
               <NextLink href="/cv">Resume</NextLink>
             </li>

@@ -31,7 +31,7 @@ body {
   --color-link-hover: #111;
   color: var(--color-text);
   /* background: #63639c; */
-  background-color: #bacdf8;
+  background-color: white;
   font-family: "DM Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -73,13 +73,13 @@ body {
 }
 
 a {
-  @apply text-accent;
+  @apply text-accentFirst;
   text-decoration: none;
   outline: none;
 }
 
 a:hover {
-  @apply text-accent-darker;
+  @apply text-accentFirst-darker;
   outline: none;
 }
 
@@ -190,7 +190,7 @@ a:focus-visible {
 .menubar a:focus,
 .menubar li:hover > a,
 .menubar li:focus-within > a {
-  background: hsl(var(--color-primary-lighter));
+  background: rgb(var(--color-primary-lighter));
   color: white;
   outline: 0 none;
   z-index: 101;
@@ -247,7 +247,7 @@ a:focus-visible {
 }
 
 .wavy a:hover {
-  @apply text-accent-darker;
+  @apply text-accentThird-darker;
 }
 
 .wavy a:hover:before {
@@ -329,7 +329,7 @@ a:focus-visible {
 }
 
 .button--hyperion {
-  @apply text-white bg-primary border-secondary;
+  @apply text-white bg-secondary-lighter border-secondary;
   font-family: "IBM Plex Mono", monospace;
   font-weight: 500;
   padding: 1rem 1.5rem;
@@ -370,7 +370,7 @@ a:focus-visible {
 }
 
 .button--hyperion::before {
-  @apply bg-tertiary-dark border-tertiary border-solid border-2;
+  @apply bg-secondary border-secondary-dark border-solid border-2;
   content: "";
   transition: transform 0.3s cubic-bezier(0.7, 0, 0.2, 1);
   transform-origin: 100% 50%;
@@ -423,7 +423,7 @@ a:focus-visible {
 .button--kari {
   @apply font-mono;
   border-radius: 50%;
-  border: 2px solid hsl(var(--color-accent-light));
+  border: 2px solid rgb(var(--color-accentFirst-light));
 }
 
 .button--kari > span {
@@ -446,19 +446,19 @@ a:focus-visible {
 }
 
 .button--pallene {
-  @apply text-accent-darker border-accent-darker border-2 border-solid;
+  @apply bg-accentFirst-light text-accentFirst-darker border-accentFirst-darker border-2 border-solid;
   font-family: "DM Sans", sans-serif;
   font-weight: 700;
   border-radius: 0.5rem;
-  box-shadow: inset 0 0 0 0px hsl(var(--color-accent-dark));
+  box-shadow: inset 0 0 0 0px rgb(var(--color-accentFirst-dark));
   transition: border-radius 0.3s, box-shadow 0.3s, color 0.3s;
   transition-timing-function: cubic-bezier(0.7, 0, 0.2, 1);
 }
 
 .button--pallene:hover {
-  @apply text-accent-light;
+  @apply text-accentFirst-darker bg-accentFirst-lighter;
   border-radius: 50%;
-  box-shadow: inset 0 0 0 40px hsl(var(--color-accent-darker));
+  box-shadow: inset 0 0 0 40px rgb(var(--color-accentFirst-darker));
   transition-delay: 0s, 0s, 0.2s;
 }
 
@@ -501,7 +501,7 @@ a:focus-visible {
 }
 
 .button--pandora span {
-  @apply bg-secondary-lighter text-primary-darker;
+  @apply bg-primary-lighter text-primary-darker;
   display: block;
   padding: 1.5rem 2rem;
   border: 1px solid #fff;
@@ -553,7 +553,7 @@ a:focus-visible {
 }
 
 .button--narvi::before {
-  @apply bg-accent-lighter;
+  @apply bg-accentSecond-lighter;
   content: "";
   z-index: -1;
   -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 85% 70%, 80% 70%, 75% 70%, 0 70%);
@@ -568,7 +568,7 @@ a:focus-visible {
 }
 
 .button--narvi span {
-  @apply text-accent-darker;
+  @apply text-accentSecond-darker;
   display: block;
   position: relative;
 }
@@ -603,7 +603,7 @@ a:focus-visible {
 }
 
 .button--hati::before {
-  @apply bg-primary-lighter;
+  @apply bg-primary-darker;
   animation: rotateIt 10s linear infinite;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23bacdf8' fill-opacity='0.31'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   content: "";

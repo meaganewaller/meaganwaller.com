@@ -38,7 +38,7 @@ export default function BlogCategoryIndex({ posts, categories }: Props) {
   }, [selectedCategory]);
 
   return (
-    <div className="bg-desktopWallpaper2">
+    <div className="bg-stars bg-repeat h-screen">
       <MenuBar />
       <Window
         active={true}
@@ -48,10 +48,11 @@ export default function BlogCategoryIndex({ posts, categories }: Props) {
         zIndex="1"
         width={`${size.width * 0.7}px`}
         height={`${size.height * 0.8}px`}
+        classList="bg-postWallpaper bg-repeat"
       >
-        <div className="space-y-12 place-content-center">
+        <div className="space-y-12 place-content-center bg-postWallpaper bg-repeat">
           {!filteredPosts.length && (
-            <div className="w-full mx-auto rounded-lg bg-[#F8FAFC] dark:bg-midnight p-4">
+            <div className="w-full mx-auto rounded-lg p-4">
               <p className="flex items-center justify-center text-2xl">
                 No posts found{" "}
                 <span>
@@ -81,32 +82,33 @@ export default function BlogCategoryIndex({ posts, categories }: Props) {
         </div>
       </Window>
       <Window active={false} title="~*categories*~" x={size.width / 22} y={size.height / 3.25} zIndex="0" width={`${size.width * 0.2}px`}>
-        <div className="flex flex-col hide-scrollbar text-center">
-          <ul className="m-0 list-flower list-inside flex flex-col w-full gap-2 py-8">
-            <div className="shrink-0">
-              <Category
-                activeCategory={selectedCategory}
-                category=""
-                cb={() => {
+        <div className="flex flex-col hide-scrollbar bg-tertiary-light/20">
+          <section className="relative flex justify-center items-center my-0 mx-auto py-2 px-1">
+            <nav className="relative z-10 menu--ama">
+              <button
+                onClick={() => {
                   setSelectedCategory("");
-                  setBlogCategoryListTitle("~* posts from all categories *~");
+                  setBlogCategoryListTitle(`~* posts from all categories *~`);
                 }}
-              />
-            </div>
-            {categories &&
-              categories.map((category) => (
-                <div key={category} className="shrink-0">
-                  <Category
-                    activeCategory={selectedCategory}
-                    category={category}
-                    cb={() => {
+                className={`p-3 text-center uppercase font-semibold font-mono cursor-pointer block bg-transparent border-3 border-solid border-tertiary rounded-[50px] w-full my-3 text-tertiary hover:shadow-tertiary hover:animate-glow transition-all ease-linear duration-500 hover:transition-all hover:shadow-[0_0_10px_0_--color-tertiary_0_0_20px_2px_--color-tertiary] ${selectedCategory === '' && "shadow-[0_0_10px_0_--color-tertiary_0_0_20px_2px_--color-tertiary] shadow-tertiary " }`}
+              >
+                All
+              </button>
+              {categories &&
+                categories.map((category, index) => (
+                  <button
+                    key={index}
+                    onClick={() => {
                       setSelectedCategory(category);
-                      setBlogCategoryListTitle(`~* posts filtered by ${category.toLowerCase()}*~`);
+                      setBlogCategoryListTitle(`~* posts filtered by ${category.toLowerCase()} *~`);
                     }}
-                  />
-                </div>
-              ))}
-          </ul>
+                    className={`p-3 text-center uppercase font-semibold font-mono cursor-pointer block bg-transparent border-3 border-solid border-tertiary rounded-[50px] w-full my-3 text-tertiary hover:shadow-tertiary hover:animate-glow transition-all ease-linear duration-500 hover:transition-all hover:shadow-[0_0_10px_0_--color-tertiary_0_0_20px_2px_--color-tertiary] ${selectedCategory === category && "shadow-[0_0_10px_0_--color-tertiary_0_0_20px_2px_--color-tertiary] shadow-tertiary " }`}
+                  >
+                    {category}
+                  </button>
+                ))}
+            </nav>
+          </section>
         </div>
       </Window>
     </div>

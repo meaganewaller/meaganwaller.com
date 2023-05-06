@@ -17,7 +17,7 @@ export const NotionBlockRenderer = ({ block }: Props) => {
   switch (type) {
     case 'paragraph':
       return (
-        <p>
+        <p className="mb-2">
           <NotionText textItems={value.rich_text} />
         </p>
       );

@@ -183,7 +183,7 @@ Usage: codyhouse.co/license
   transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .coming-soon__social-btn:hover::before {
-  @apply bg-contrast-lower dark:bg-primary-lighter;
+  /* @apply bg-contrast-lower dark:bg-primary-lighter; */
   transform: scale(1);
 }
 
@@ -233,7 +233,7 @@ Usage: codyhouse.co/license
 }
 
 .news-form__input {
-  @apply bg-contrast-higher/7 dark:bg-secondary-lighter/5;
+  /* @apply bg-contrast-higher/7 dark:bg-secondary-lighter/5; */
   padding: 0 var(--news-form-input-padding-x);
   border-radius: var(--news-form-input-radius);
   width: 100%;
@@ -242,7 +242,7 @@ Usage: codyhouse.co/license
 }
 .news-form__input:focus {
   outline: none;
-  @apply bg-floor dark:bg-secondary-lighter;
+  /* @apply bg-floor dark:bg-secondary-lighter; */
   box-shadow: 0 0.9px 1.5px rgba(0, 0, 0, 0.03), 0 3.1px 5.5px rgba(0, 0, 0, 0.08), 0 14px 25px rgba(0, 0, 0, 0.12), 0 0 0 2px hsl(var(--color-primary));
 }
 
@@ -254,8 +254,8 @@ Usage: codyhouse.co/license
   right: var(--news-form-btn-margin);
   height: calc(var(--news-form-input-height) - 2*var(--news-form-btn-margin));
   padding: 0 var(--news-form-btn-padding-x);
-  @apply bg-contrast-higher/20;
-  @apply text-contrast-higher/90;
+  /* @apply bg-contrast-higher/20; */
+  /* @apply text-contrast-higher/90; */
   border-radius: calc(var(--news-form-input-radius) * 0.85);
   @apply shadow;
   @apply text-sm lg:text-base;
@@ -493,12 +493,12 @@ Usage: codyhouse.co/license
 }
 
 .news-form__msg--success {
-  @apply bg-success-lighter text-black;
+  /* @apply bg-success-lighter text-black; */
 }
 
 .news-form__msg--error {
-  @apply bg-error;
-  @apply text-white;
+  /* @apply bg-error; */
+  /* @apply text-white; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

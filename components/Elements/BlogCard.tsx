@@ -1,6 +1,6 @@
 import { Blog } from "lib/blogApi";
 import slugify from "slugify";
-// import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import { handlePostClicked } from "@lib/handlePostClicked";
 import { useIsPostRead } from "@lib/hooks/useIsPostRead";
@@ -12,20 +12,34 @@ type Props = {
   post: Blog;
 };
 
+
 export function BlogCard({ post }: Props) {
   const slug = slugify(post.title).toLowerCase();
 
   const [hasRead] = useIsPostRead(slug);
 
   return (
-    <div className="bg-floor-darker p-7 m-[1%]">
-      <button onClick={() => handlePostClicked(slug)}>
-        <div className="text-start break-word box-border font-mono">
-          <h2 className="text-xl font-bold">{post.title}</h2>
-          <span className="uppercase tracking-wide text-xs">{formatDate(post.publishedAt)}</span>
-          <p className="text-sm break-all">{post.description}</p>
+    <article className="flex flex-col items-start border-2 border-white bg-gradient-to-br from-primary-lighter via-accentFirst-light to-secondary-lighter border-solid rounded-2xl overflow-auto transition-all ease-linear duration-500 hover:transition-all hover:animate-glow hover:shadow-white hover:shadow-glowing hover:cursor-pointer overflow-x-hidden">
+      <div className="relative">
+        <Image
+          src={post.coverImage}
+          width={640}
+          height={360}
+          alt=""
+          className="p-1 aspect-[16/9] rounded-t-2xl"
+        />
+      </div>
+      <div className="max-w-full">
+        <div className="group relative font-extra px-3 py-2">
+          <h3 className="p-1 text-md break-word font-semibold group-hover:text-primary-darker">
+            <Link href={`/blog/${post.slug}`} className="text-white">
+              <span className="absolute inset-0" />
+              {post.title}
+            </Link>
+          </h3>
+          <p className="my-2 p-1 line-clamp text-base break-word text-white">{post.description}</p>
         </div>
-      </button>
-    </div>
+      </div>
+    </article>
   );
 }

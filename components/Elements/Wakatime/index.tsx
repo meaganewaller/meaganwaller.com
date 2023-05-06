@@ -1,5 +1,4 @@
-// import { Icon } from "@iconify/react";
-// import icon90RingWithBg from "@iconify/icons-svg-spinners/90-ring-with-bg";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import LanguageProgress from "./LanguageProgress";
@@ -47,7 +46,7 @@ export default function WakaTime() {
         </>
       ) : (
         <div className="flex justify-center items-center h-full w-full">
-          {/* <Icon icon={icon90RingWithBg} className="h-8 w-8" scale={32} /> */}
+          <Image src="/static/images/gifs/dogs.gif" alt="Loading" width="150" height="150" />
         </div>
       )}
     </div>

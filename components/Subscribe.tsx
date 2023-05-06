@@ -52,7 +52,7 @@ const SubscribeForm = ({ formId }: Props) => {
     <div className="flex flex-col font-extra">
       {form.state !== Form.Success && (
         <>
-          <h3 className="font-medium text-3xl mb-3.5 lg:text-4xl text-center text-primary-darker dark:text-secondary-light font-mono">
+          <h3 className="font-medium text-3xl mb-3.5 lg:text-4xl text-center text-tertiary dark:text-tertiary-light font-mono">
             {`A newsletter you'll`}{' '}
             <em>actually</em> open
           </h3>
@@ -77,13 +77,13 @@ const SubscribeForm = ({ formId }: Props) => {
                 aria-label="First Name"
                 name="first_name"
                 placeholder="First name"
-                className="transition-colors w-full bg-white px-5 py-3 rounded-full border-[3px] border-contrast-higher/8 focus:outline-none focus:border-secondary-darker text-black"
+                className="transition-colors w-full bg-white px-5 py-3 rounded-full border-[3px] border-tertiary-dark/9 focus:outline-none focus:border-tertiary-darker text-black"
               />
               <input
                 disabled={form.state === Form.Loading}
                 type="email"
                 placeholder="Email"
-                className="transition-colors w-full bg-white px-5 py-3 rounded-full border-[3px] border-contrast-higher/8 focus:outline-none focus:border-secondary-darker text-black"
+                className="transition-colors w-full bg-white px-5 py-3 rounded-full border-[3px] border-tertiary-dark/9 focus:outline-none focus:border-tertiary-darker text-black"
                 name="email"
                 aria-label="Email"
               />
@@ -92,13 +92,13 @@ const SubscribeForm = ({ formId }: Props) => {
               type="submit"
               aria-label="Subscribe"
               name="subscribe"
-              className="transition-all flex items-center bg-primary text-white justify-center space-x-1 px-5 py-3 rounded-full w-full hover:bg-primary-darker"
+              className="transition-all flex items-center bg-tertiary text-white justify-center space-x-1 px-5 py-3 rounded-full w-full hover:bg-tertiary-lighter"
             >
               Subscribe
             </button>
             <small>No spam - unsubscribe at anytime!</small>
             {data?.count > 99 && (
-              <p className="text-lg text-primary-darker dark:text-primary-lighter">
+              <p className="text-lg text-tertiary-darker dark:text-tertiary-lighter">
                 Join {data?.count}+ subscribers
               </p>
             )}

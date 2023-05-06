@@ -5,6 +5,7 @@ import Window from '@components/Elements/Window';
 import { formatDate } from "@lib/utils/date";
 import { NotionBlockRenderer } from "@components/notion/NotionBlockRenderer";
 import { Blog as PostType, blogApi } from "@lib/blogApi";
+import MenuBar from "@components/Elements/MenuBar";
 import { useWindowSize } from "@lib/hooks/useWindowSize";
 
 interface Props {
@@ -24,21 +25,29 @@ export default function Post({
   }, []);
 
   return (
-    <div className="h-screen bg-desktopWallpaper">
-      <Window active={true} title={title} x={size.width/2 - (size.width * .9 / 2)} y={40} zIndex="2" width={`${size.width * .9}px`}>
-        <div className="flex p-5 place-content-center flex-col">
-          <div className="flex place-content-center pb-4">
+    <div className="bg-stars bg-repeat h-screen">
+      <MenuBar />
+      <Window
+        active={true}
+        title={title}
+        x={size.width/2 - (size.width * .9 / 2)}
+        y={40}
+        zIndex="2"
+        width={`${size.width * .9}px`}
+      >
+        <div className="space-y-12 place-content-center">
+          <div className="w-full mx-auto rounded-lg p-4">
             <div className="pb-32">
               <div className="mt-16 lg:mt-32">
-                <main className="mx-auto max-w-[90%]">
+                <main className="mx-auto">
                   <article className="pt-2">
-                    <header className="mb-[40px] flex h-[64px] flex-col content-center items-center border-b border-solid text-tertiary-darker font-mono leading-relaxed">
+                    <header className="mb-[40px] flex h-[64px] flex-col content-center items-center border-b border-solid text-tertiary font-mono leading-relaxed">
                       <div className="page-meta">
                         <span id="date">{formatDate(createdAt)}</span>
                       </div>
                       <h1 className="text-xl font-semibold" style={{ margin: "0 0 1rem" }}>{title}</h1>
                     </header>
-                    <section className="font-sans text-base text-prose">
+                    <section className="font-sans text-lg leading-loose">
                       {postContent.map((block) => (
                         <NotionBlockRenderer key={block.id} block={block} />
                       ))}

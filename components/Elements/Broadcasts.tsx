@@ -10,7 +10,7 @@ const Broadcasts = () => {
 
   return (
     <div className="flex flex-col">
-      {!data?.broadcasts && <div className="text-center">No issues found</div>}
+      {!data?.broadcasts && <div className="text-center text-xl font-extra">No issues found 😪 </div>}
       {data?.broadcasts &&
         data?.broadcasts?.map((broadcast) => (
           <Link href="/broadcasts/[id]" key={broadcast.id} as={`/broadcasts/${broadcast.id}`}>

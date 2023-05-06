@@ -7,10 +7,10 @@ type Props = {
 
 export function PostList({ posts }: Props) {
   return (
-    <div className="p-2 list-none grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 overflow-y-auto">
+    <main className="mx-auto pt-5 grid grid-cols-1 gap-x-3 gap-y-5 lg:mx-0 lg:max-w-none lg:grid-cols-3 px-4 bg-postWallpaper h-full">
       {posts.map((post) => (
         <BlogCard key={post.title} post={post} />
       ))}
-    </div>
+    </main>
   );
 }
